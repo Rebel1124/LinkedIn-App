@@ -99,8 +99,7 @@ const mockPosts = {
     {
       id: "9",
       content:
-        "🚀 Portfolio update: My investment strategy is paying off, and here's why...\n\nKey principles I follow:\n\n📈 The 4 pillars of my approach:\n1. Research before you invest\n2. Diversify across asset classes\n3. Rebalance regularly\
-4. Stay disciplined during volatility\n\nResults speak louder than predictions. While others panic during market downturns, disciplined investors see opportunities.\n\n💪 Building wealth isn't about getting rich quick - it's about getting rich slowly and surely.\n\nWhat's your investment philosophy? Let's discuss! 💬\n\n#PortfolioManagement #InvestmentPhilosophy #WealthCreation #FinancialFreedom",
+        "🚀 Portfolio update: My investment strategy is paying off, and here's why...\n\nKey principles I follow:\n\n📈 The 4 pillars of my approach:\n1. Research before you invest\n2. Diversify across asset classes\n3. Rebalance regularly\n4. Stay disciplined during volatility\n\nResults speak louder than predictions. While others panic during market downturns, disciplined investors see opportunities.\n\n💪 Building wealth isn't about getting rich quick - it's about getting rich slowly and surely.\n\nWhat's your investment philosophy? Let's discuss! 💬\n\n#PortfolioManagement #InvestmentPhilosophy #WealthCreation #FinancialFreedom",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Investing",
     },
@@ -199,72 +198,76 @@ export default function LinkedInPostGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100 p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Combined User Profile and Header Section */}
-        <Card className="mb-6 overflow-hidden border-2 border-gradient-to-r from-purple-200 to-pink-200">
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 p-8">
-            <div className="flex items-center justify-between">
-              {/* User Profile - Left Side */}
-              <div className="flex items-center gap-6">
+        <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-gradient-to-r from-purple-200 to-pink-200">
+          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 p-4 sm:p-8">
+            <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
+              {/* User Profile - Top on mobile, Left on desktop */}
+              <div className="flex items-center gap-4 sm:gap-6">
                 <div className="relative">
                   <img
                     src={userProfile.avatar || "/placeholder.svg"}
                     alt={userProfile.name}
-                    className="w-20 h-20 rounded-full border-4 border-white shadow-lg"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-lg"
                   />
                   <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1">
                     {(() => {
                       const levelInfo = getLevelInfo(userProfile.level)
                       const IconComponent = levelInfo.icon
-                      return <IconComponent className={`h-5 w-5 ${levelInfo.color}`} />
+                      return <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${levelInfo.color}`} />
                     })()}
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="text-3xl font-bold">{userProfile.name}</h2>
-                  <div className="flex items-center gap-2 mt-2">
+                  <h2 className="text-xl sm:text-3xl font-bold">{userProfile.name}</h2>
+                  <div className="flex items-center gap-2 mt-1 sm:mt-2">
                     <Badge
-                      className={`${getLevelInfo(userProfile.level).bgColor} ${getLevelInfo(userProfile.level).color} border text-sm px-3 py-1`}
+                      className={`${getLevelInfo(userProfile.level).bgColor} ${getLevelInfo(userProfile.level).color} border text-xs sm:text-sm px-2 py-1 sm:px-3`}
                     >
                       Level {userProfile.level} • {getLevelInfo(userProfile.level).title}
                     </Badge>
                   </div>
-                  <p className="text-purple-100 text-base mt-2">{userProfile.totalPosts} posts created</p>
+                  <p className="text-purple-100 text-sm sm:text-base mt-1 sm:mt-2">
+                    {userProfile.totalPosts} posts created
+                  </p>
                 </div>
               </div>
 
-              {/* Header Content - Right Side */}
-              <div className="text-right">
-                <h1 className="text-6xl font-bold text-white mb-4 drop-shadow-lg">LinkedIn Post Generator</h1>
-                <p className="text-purple-100 text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
+              {/* Header Content - Bottom on mobile, Right on desktop */}
+              <div className="text-center sm:text-right">
+                <h1 className="text-3xl sm:text-6xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
+                  LinkedIn Post Generator
+                </h1>
+                <p className="text-purple-100 text-base sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
               </div>
             </div>
           </div>
         </Card>
 
         {/* Theme Selection Tabs */}
-        <Card className="mb-6 border-2 border-purple-200 shadow-lg">
-          <CardContent className="p-6">
-            <div className="space-y-4">
-              <Label className="text-purple-700 font-bold text-lg">Select Your Theme 🎨</Label>
+        <Card className="mb-4 sm:mb-6 border-2 border-purple-200 shadow-lg">
+          <CardContent className="p-4 sm:p-6">
+            <div className="space-y-3 sm:space-y-4">
+              <Label className="text-purple-700 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-3 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-0 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-2 h-auto">
                   <TabsTrigger
                     value="ai-coding"
-                    className="rounded-lg font-bold py-4 px-6 text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     🤖 AI & Coding
                   </TabsTrigger>
                   <TabsTrigger
                     value="financial"
-                    className="rounded-lg font-bold py-4 px-6 text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     💰 Financial Markets
                   </TabsTrigger>
                   <TabsTrigger
                     value="investing"
-                    className="rounded-lg font-bold py-4 px-6 text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     📈 Investing
                   </TabsTrigger>
@@ -275,26 +278,29 @@ export default function LinkedInPostGenerator() {
         </Card>
 
         {/* Input Section */}
-        <Card className="mb-8 border-2 border-purple-200 shadow-xl">
+        <Card className="mb-6 sm:mb-8 border-2 border-purple-200 shadow-xl">
           <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
-            <CardTitle className="text-purple-800 text-xl font-bold">Generate Your Amazing Posts</CardTitle>
-            <CardDescription className="text-purple-600">
+            <CardTitle className="text-purple-800 text-lg sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
+            <CardDescription className="text-purple-600 text-sm sm:text-base">
               Upload content, enter keywords, and generate stunning LinkedIn posts! 🎯
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6 p-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* File Upload */}
               <div className="space-y-2">
-                <Label htmlFor="pdf-upload" className="flex items-center gap-2 text-purple-700 font-medium">
+                <Label
+                  htmlFor="pdf-upload"
+                  className="flex items-center gap-2 text-purple-700 font-medium text-sm sm:text-base"
+                >
                   <FileText className="h-4 w-4" />
                   Upload PDF 📄
                 </Label>
-                <div className="border-3 border-dashed border-purple-300 rounded-xl p-6 text-center hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 bg-gradient-to-br from-purple-25 to-pink-25">
+                <div className="border-3 border-dashed border-purple-300 rounded-xl p-4 sm:p-6 text-center hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 bg-gradient-to-br from-purple-25 to-pink-25">
                   <input id="pdf-upload" type="file" accept=".pdf" onChange={handleFileUpload} className="hidden" />
                   <label htmlFor="pdf-upload" className="cursor-pointer">
-                    <Upload className="h-10 w-10 mx-auto mb-3 text-purple-400" />
-                    <p className="text-sm text-purple-600 font-medium">
+                    <Upload className="h-8 w-8 sm:h-10 sm:w-10 mx-auto mb-2 sm:mb-3 text-purple-400" />
+                    <p className="text-xs sm:text-sm text-purple-600 font-medium">
                       {pdfFile ? `📎 ${pdfFile.name}` : "Click to upload PDF file"}
                     </p>
                   </label>
@@ -303,7 +309,10 @@ export default function LinkedInPostGenerator() {
 
               {/* YouTube Link */}
               <div className="space-y-2">
-                <Label htmlFor="youtube-link" className="flex items-center gap-2 text-red-700 font-medium">
+                <Label
+                  htmlFor="youtube-link"
+                  className="flex items-center gap-2 text-red-700 font-medium text-sm sm:text-base"
+                >
                   <Youtube className="h-4 w-4 text-red-600" />
                   YouTube Video Link 🎥
                 </Label>
@@ -313,14 +322,14 @@ export default function LinkedInPostGenerator() {
                   placeholder="https://youtube.com/watch?v=... ✨"
                   value={youtubeLink}
                   onChange={(e) => setYoutubeLink(e.target.value)}
-                  className="border-2 border-red-200 focus:border-red-400 rounded-xl"
+                  className="border-2 border-red-200 focus:border-red-400 rounded-xl text-sm sm:text-base"
                 />
               </div>
             </div>
 
             {/* Keyword Input */}
             <div className="space-y-2">
-              <Label htmlFor="keyword" className="text-indigo-700 font-medium">
+              <Label htmlFor="keyword" className="text-indigo-700 font-medium text-sm sm:text-base">
                 Keyword Magic
               </Label>
               <Input
@@ -328,7 +337,7 @@ export default function LinkedInPostGenerator() {
                 placeholder="Enter a keyword to generate amazing posts about..."
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
-                className="border-2 border-indigo-200 focus:border-indigo-400 rounded-xl text-lg p-4"
+                className="border-2 border-indigo-200 focus:border-indigo-400 rounded-xl text-base sm:text-lg p-3 sm:p-4"
               />
             </div>
 
@@ -340,17 +349,17 @@ export default function LinkedInPostGenerator() {
                 generatedPosts.length > 0
                   ? "bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800"
                   : "bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 hover:from-purple-600 hover:via-pink-600 hover:to-indigo-600"
-              } text-white font-bold py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
+              } text-white font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
               size="lg"
             >
               {isGenerating ? (
                 <>
-                  <RefreshCw className="h-5 w-5 mr-2 animate-spin" />
+                  <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5 mr-2 animate-spin" />
                   Creating Magic...
                 </>
               ) : generatedPosts.length > 0 ? (
                 <>
-                  <RefreshCw className="h-5 w-5 mr-2" />
+                  <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Regenerate Magic Posts!
                 </>
               ) : (
@@ -362,14 +371,14 @@ export default function LinkedInPostGenerator() {
 
         {/* Generated Posts Section */}
         {generatedPosts.length > 0 && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="flex items-center justify-center">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Your Generated Posts
               </h2>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {generatedPosts.map((post, index) => (
                 <Card
                   key={post.id}
@@ -382,18 +391,18 @@ export default function LinkedInPostGenerator() {
                       className="w-full h-full object-cover"
                     />
                     <Badge
-                      className={`absolute top-3 right-3 ${getThemeColor(post.theme)} font-medium text-sm px-3 py-1 rounded-full shadow-lg`}
+                      className={`absolute top-2 sm:top-3 right-2 sm:right-3 ${getThemeColor(post.theme)} font-medium text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-lg`}
                     >
                       {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
                     </Badge>
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
+                    <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
                       <span className="text-xs font-bold text-purple-600">Post #{index + 1}</span>
                     </div>
                   </div>
-                  <CardContent className="p-5">
-                    <div className="space-y-4">
+                  <CardContent className="p-3 sm:p-5">
+                    <div className="space-y-3 sm:space-y-4">
                       <div
-                        className="text-sm text-gray-700 max-h-96 overflow-y-auto pr-2"
+                        className="text-xs sm:text-sm text-gray-700 max-h-64 sm:max-h-96 overflow-y-auto pr-2"
                         style={{
                           scrollbarWidth: "thin",
                           scrollbarColor: "#a855f7 #f3e8ff",
@@ -405,21 +414,21 @@ export default function LinkedInPostGenerator() {
                           </p>
                         ))}
                       </div>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2">
                         <Button
                           onClick={() => handlePostToLinkedIn(post)}
-                          className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500"
+                          className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 text-xs sm:text-sm"
                           size="sm"
                         >
-                          <ExternalLink className="h-4 w-4 mr-2" />📱 LinkedIn Post
+                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />📱 LinkedIn Post
                         </Button>
                         <Button
                           onClick={() => handleEditPost(post)}
                           variant="outline"
                           size="sm"
-                          className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl font-medium"
+                          className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl font-medium text-xs sm:text-sm"
                         >
-                          <Edit className="h-4 w-4 mr-2" />
+                          <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                           ✏️ Edit Post
                         </Button>
                       </div>
@@ -433,12 +442,16 @@ export default function LinkedInPostGenerator() {
 
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto border-2 border-purple-200">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-purple-200 mx-2 sm:mx-auto">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-purple-800">✏️ Edit Your LinkedIn Post</DialogTitle>
-              <DialogDescription className="text-purple-600">Make your post even more amazing!</DialogDescription>
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-purple-800">
+                ✏️ Edit Your LinkedIn Post
+              </DialogTitle>
+              <DialogDescription className="text-purple-600 text-sm sm:text-base">
+                Make your post even more amazing!
+              </DialogDescription>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {editingPost && (
                 <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-purple-200">
                   <img
@@ -446,7 +459,9 @@ export default function LinkedInPostGenerator() {
                     alt="Post image"
                     className="w-full h-full object-cover"
                   />
-                  <Badge className={`absolute top-3 right-3 ${getThemeColor(editingPost.theme)} font-medium shadow-lg`}>
+                  <Badge
+                    className={`absolute top-2 sm:top-3 right-2 sm:right-3 ${getThemeColor(editingPost.theme)} font-medium shadow-lg text-xs sm:text-sm`}
+                  >
                     {editingPost.theme}
                   </Badge>
                 </div>
@@ -454,22 +469,22 @@ export default function LinkedInPostGenerator() {
               <Textarea
                 value={editedContent}
                 onChange={(e) => setEditedContent(e.target.value)}
-                rows={12}
+                rows={8}
                 placeholder="Edit your amazing post content..."
-                className="resize-none border-2 border-purple-200 focus:border-purple-400 rounded-xl"
+                className="resize-none border-2 border-purple-200 focus:border-purple-400 rounded-xl text-sm sm:text-base"
               />
             </div>
-            <DialogFooter>
+            <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
               <Button
                 variant="outline"
                 onClick={() => setIsEditDialogOpen(false)}
-                className="border-2 border-gray-300 rounded-xl"
+                className="border-2 border-gray-300 rounded-xl text-sm sm:text-base"
               >
                 Cancel
               </Button>
               <Button
                 onClick={saveEditedPost}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-xl"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-xl text-sm sm:text-base"
               >
                 💾 Save Changes
               </Button>
