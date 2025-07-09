@@ -108,9 +108,9 @@ const mockPosts = {
 }
 
 const userProfile = {
-  name: "Alex Johnson",
+  name: "Desi Reddy",
   level: 7,
-  totalPosts: 142,
+  totalPosts: 42,
   avatar: "/placeholder.svg?height=80&width=80&text=%F0%9F%8C%9F",
 }
 
