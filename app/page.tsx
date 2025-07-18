@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,7 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Upload, Youtube, Edit, RefreshCw, FileText, ExternalLink } from "lucide-react"
+import { Edit, RefreshCw, ExternalLink, Calendar, Clock, Trash2, Eye } from "lucide-react"
 import { Crown, Star, Zap } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -28,11 +26,51 @@ interface GeneratedPost {
   theme: string
 }
 
+interface ScheduledPost {
+  id: string
+  content: string
+  image: string
+  theme: string
+  scheduledDate: string
+  scheduledTime: string
+  originalPostId: string
+}
+
 const themes = [
   { value: "ai-coding", label: "AI & Coding", color: "bg-blue-100 text-blue-800" },
   { value: "financial", label: "Financial Markets", color: "bg-green-100 text-green-800" },
-  { value: "investing", label: "Investing", color: "bg-purple-100 text-purple-800" },
 ]
+
+const topicSuggestions = {
+  "ai-coding": [
+    "Machine Learning",
+    "ChatGPT",
+    "Code Review",
+    "Python Programming",
+    "AI Tools",
+    "Software Development",
+    "Automation",
+    "Deep Learning",
+    "Neural Networks",
+    "API Development",
+    "Cloud Computing",
+    "DevOps",
+  ],
+  financial: [
+    "Stock Market",
+    "Cryptocurrency",
+    "Investment Strategy",
+    "Portfolio Management",
+    "Risk Management",
+    "Market Analysis",
+    "Trading Tips",
+    "Economic Trends",
+    "Financial Planning",
+    "Wealth Building",
+    "Market Volatility",
+    "Interest Rates",
+  ],
+}
 
 const mockPosts = {
   "ai-coding": [
@@ -81,29 +119,6 @@ const mockPosts = {
       theme: "Financial Markets",
     },
   ],
-  investing: [
-    {
-      id: "7",
-      content:
-        "💰 The biggest investing mistake I see people make? Trying to time the market instead of time in the market.\n\nAfter 10+ years in investing, here's what I've learned:\n\n🎯 Winning strategies:\n• Dollar-cost averaging beats timing\n• Compound interest is your best friend\n• Diversification reduces risk without sacrificing returns\n• Patience trumps perfection\n\nThe wealthy don't have a crystal ball - they have discipline and a long-term perspective.\n\nWhat's the best investing advice you've ever received? Share below! 👇\n\n#Investing #WealthBuilding #PersonalFinance #LongTermInvesting #CompoundInterest",
-      image: "/placeholder.svg?height=400&width=600",
-      theme: "Investing",
-    },
-    {
-      id: "8",
-      content:
-        "🔍 Hidden gem alert: While everyone's chasing the latest trends, I've been quietly building positions in undervalued sectors.\n\nMy investment thesis:\n• Strong fundamentals\n• Recession-resistant business models\n• Growing market demand\n• Reasonable valuations\n\n💡 Remember: The best investments often feel uncomfortable at first. When others are fearful, be greedy (but smart about it).\n\nContrarian investing isn't about being different - it's about being right when it matters most.\n\nWhat undervalued opportunities are you seeing? 🤔\n\n#ValueInvesting #ContrarianInvesting #StockPicking #InvestmentOpportunity",
-      image: "/placeholder.svg?height=400&width=600",
-      theme: "Investing",
-    },
-    {
-      id: "9",
-      content:
-        "🚀 Portfolio update: My investment strategy is paying off, and here's why...\n\nKey principles I follow:\n\n📈 The 4 pillars of my approach:\n1. Research before you invest\n2. Diversify across asset classes\n3. Rebalance regularly\n4. Stay disciplined during volatility\n\nResults speak louder than predictions. While others panic during market downturns, disciplined investors see opportunities.\n\n💪 Building wealth isn't about getting rich quick - it's about getting rich slowly and surely.\n\nWhat's your investment philosophy? Let's discuss! 💬\n\n#PortfolioManagement #InvestmentPhilosophy #WealthCreation #FinancialFreedom",
-      image: "/placeholder.svg?height=400&width=600",
-      theme: "Investing",
-    },
-  ],
 }
 
 const userProfile = {
@@ -131,22 +146,19 @@ const getLevelInfo = (level: number) => {
 }
 
 export default function LinkedInPostGenerator() {
-  const [pdfFile, setPdfFile] = useState<File | null>(null)
-  const [youtubeLink, setYoutubeLink] = useState("")
   const [keyword, setKeyword] = useState("")
   const [selectedTheme, setSelectedTheme] = useState("")
   const [generatedPosts, setGeneratedPosts] = useState<GeneratedPost[]>([])
+  const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [editingPost, setEditingPost] = useState<GeneratedPost | null>(null)
   const [editedContent, setEditedContent] = useState("")
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-    if (file && file.type === "application/pdf") {
-      setPdfFile(file)
-    }
-  }
+  const [schedulingPost, setSchedulingPost] = useState<GeneratedPost | null>(null)
+  const [isScheduleDialogOpen, setIsScheduleDialogOpen] = useState(false)
+  const [scheduleDate, setScheduleDate] = useState("")
+  const [scheduleTime, setScheduleTime] = useState("")
+  const [showScheduledPosts, setShowScheduledPosts] = useState(false)
 
   const generatePosts = async () => {
     if (!keyword || !selectedTheme) return
@@ -182,6 +194,34 @@ export default function LinkedInPostGenerator() {
     }
   }
 
+  const handleSchedulePost = (post: GeneratedPost) => {
+    setSchedulingPost(post)
+    setScheduleDate("")
+    setScheduleTime("")
+    setIsScheduleDialogOpen(true)
+  }
+
+  const saveScheduledPost = () => {
+    if (schedulingPost && scheduleDate && scheduleTime) {
+      const newScheduledPost: ScheduledPost = {
+        id: `scheduled-${Date.now()}`,
+        content: schedulingPost.content,
+        image: schedulingPost.image,
+        theme: schedulingPost.theme,
+        scheduledDate: scheduleDate, // Declared variable
+        scheduledTime: scheduleTime, // Declared variable
+        originalPostId: schedulingPost.id,
+      }
+      setScheduledPosts([...scheduledPosts, newScheduledPost])
+      setIsScheduleDialogOpen(false)
+      setSchedulingPost(null)
+    }
+  }
+
+  const deleteScheduledPost = (scheduledPostId: string) => {
+    setScheduledPosts(scheduledPosts.filter((post) => post.id !== scheduledPostId))
+  }
+
   const handlePostToLinkedIn = (post: GeneratedPost) => {
     // Create LinkedIn share URL with the post content
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
@@ -195,6 +235,36 @@ export default function LinkedInPostGenerator() {
   const getThemeColor = (themeName: string) => {
     const theme = themes.find((t) => t.label === themeName)
     return theme?.color || "bg-gray-100 text-gray-800"
+  }
+
+  const handleTopicSuggestionClick = (topic: string) => {
+    setKeyword(topic)
+  }
+
+  const getCurrentSuggestions = () => {
+    return selectedTheme ? topicSuggestions[selectedTheme as keyof typeof topicSuggestions] || [] : []
+  }
+
+  const formatScheduledDateTime = (date: string, time: string) => {
+    const dateObj = new Date(`${date}T${time}`)
+    return dateObj.toLocaleString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    })
+  }
+
+  const getTodayDate = () => {
+    const today = new Date()
+    return today.toISOString().split("T")[0]
+  }
+
+  const getCurrentTime = () => {
+    const now = new Date()
+    return now.toTimeString().slice(0, 5)
   }
 
   return (
@@ -230,7 +300,7 @@ export default function LinkedInPostGenerator() {
                     </Badge>
                   </div>
                   <p className="text-purple-100 text-sm sm:text-base mt-1 sm:mt-2">
-                    {userProfile.totalPosts} posts created
+                    {userProfile.totalPosts} posts created • {scheduledPosts.length} scheduled
                   </p>
                 </div>
               </div>
@@ -246,13 +316,96 @@ export default function LinkedInPostGenerator() {
           </div>
         </Card>
 
+        {/* Scheduled Posts Toggle */}
+        {scheduledPosts.length > 0 && (
+          <Card className="mb-4 sm:mb-6 border-2 border-orange-200 shadow-lg">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-5 w-5 text-orange-600" />
+                  <span className="font-bold text-orange-700 text-base sm:text-lg">
+                    📅 {scheduledPosts.length} Scheduled Post{scheduledPosts.length !== 1 ? "s" : ""}
+                  </span>
+                </div>
+                <Button
+                  onClick={() => setShowScheduledPosts(!showScheduledPosts)}
+                  variant="outline"
+                  size="sm"
+                  className="border-orange-300 text-orange-600 hover:bg-orange-50"
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  {showScheduledPosts ? "Hide" : "View"} Scheduled
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Scheduled Posts Section */}
+        {showScheduledPosts && scheduledPosts.length > 0 && (
+          <Card className="mb-6 border-2 border-orange-200 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-orange-50 to-yellow-50">
+              <CardTitle className="text-orange-800 text-lg sm:text-xl font-bold flex items-center gap-2">
+                <Calendar className="h-5 w-5" />
+                Your Scheduled Posts
+              </CardTitle>
+              <CardDescription className="text-orange-600">Manage your upcoming LinkedIn posts</CardDescription>
+            </CardHeader>
+            <CardContent className="p-4 sm:p-6">
+              <div className="space-y-4">
+                {scheduledPosts.map((scheduledPost) => (
+                  <div
+                    key={scheduledPost.id}
+                    className="border-2 border-orange-100 rounded-xl p-4 bg-gradient-to-r from-orange-25 to-yellow-25 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="flex-shrink-0">
+                        <img
+                          src={scheduledPost.image || "/placeholder.svg"}
+                          alt="Scheduled post"
+                          className="w-full sm:w-24 h-24 object-cover rounded-lg"
+                        />
+                      </div>
+                      <div className="flex-1 space-y-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                          <Badge className={`${getThemeColor(scheduledPost.theme)} w-fit`}>{scheduledPost.theme}</Badge>
+                          <div className="flex items-center gap-2 text-sm text-orange-600">
+                            <Clock className="h-4 w-4" />
+                            <span className="font-medium">
+                              {formatScheduledDateTime(scheduledPost.scheduledDate, scheduledPost.scheduledTime)}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-700 line-clamp-3">
+                          {scheduledPost.content.substring(0, 150)}...
+                        </p>
+                        <div className="flex gap-2">
+                          <Button
+                            onClick={() => deleteScheduledPost(scheduledPost.id)}
+                            variant="outline"
+                            size="sm"
+                            className="border-red-300 text-red-600 hover:bg-red-50"
+                          >
+                            <Trash2 className="h-3 w-3 mr-1" />
+                            Delete
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* Theme Selection Tabs */}
         <Card className="mb-4 sm:mb-6 border-2 border-purple-200 shadow-lg">
           <CardContent className="p-4 sm:p-6">
             <div className="space-y-3 sm:space-y-4">
               <Label className="text-purple-700 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-0 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-2 gap-2 sm:gap-0 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-2 h-auto">
                   <TabsTrigger
                     value="ai-coding"
                     className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
@@ -265,14 +418,38 @@ export default function LinkedInPostGenerator() {
                   >
                     💰 Financial Markets
                   </TabsTrigger>
-                  <TabsTrigger
-                    value="investing"
-                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
-                  >
-                    📈 Investing
-                  </TabsTrigger>
                 </TabsList>
               </Tabs>
+
+              {/* Topic Suggestions */}
+              {selectedTheme && (
+                <div className="space-y-3 animate-in fade-in-50 duration-500">
+                  <Label className="text-indigo-700 font-medium text-sm sm:text-base">
+                    💡 Popular Topics (Click to select)
+                  </Label>
+                  <div className="flex flex-wrap gap-2">
+                    {getCurrentSuggestions().map((topic, index) => (
+                      <Button
+                        key={index}
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleTopicSuggestionClick(topic)}
+                        className={`rounded-full text-xs sm:text-sm px-3 py-1 transition-all duration-300 hover:scale-105 ${
+                          keyword === topic
+                            ? selectedTheme === "ai-coding"
+                              ? "bg-blue-100 border-blue-300 text-blue-700 hover:bg-blue-200"
+                              : "bg-green-100 border-green-300 text-green-700 hover:bg-green-200"
+                            : selectedTheme === "ai-coding"
+                              ? "border-blue-200 text-blue-600 hover:bg-blue-50"
+                              : "border-green-200 text-green-600 hover:bg-green-50"
+                        }`}
+                      >
+                        {topic}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -282,59 +459,18 @@ export default function LinkedInPostGenerator() {
           <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
             <CardTitle className="text-purple-800 text-lg sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
             <CardDescription className="text-purple-600 text-sm sm:text-base">
-              Upload content, enter keywords, and generate stunning LinkedIn posts! 🎯
+              Enter a topic to generate stunning LinkedIn posts! 🎯
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {/* File Upload */}
-              <div className="space-y-2">
-                <Label
-                  htmlFor="pdf-upload"
-                  className="flex items-center gap-2 text-purple-700 font-medium text-sm sm:text-base"
-                >
-                  <FileText className="h-4 w-4" />
-                  Upload PDF 📄
-                </Label>
-                <div className="border-3 border-dashed border-purple-300 rounded-xl p-4 sm:p-6 text-center hover:border-purple-400 hover:bg-purple-50 transition-all duration-300 bg-gradient-to-br from-purple-25 to-pink-25">
-                  <input id="pdf-upload" type="file" accept=".pdf" onChange={handleFileUpload} className="hidden" />
-                  <label htmlFor="pdf-upload" className="cursor-pointer">
-                    <Upload className="h-8 w-8 sm:h-10 sm:w-10 mx-auto mb-2 sm:mb-3 text-purple-400" />
-                    <p className="text-xs sm:text-sm text-purple-600 font-medium">
-                      {pdfFile ? `📎 ${pdfFile.name}` : "Click to upload PDF file"}
-                    </p>
-                  </label>
-                </div>
-              </div>
-
-              {/* YouTube Link */}
-              <div className="space-y-2">
-                <Label
-                  htmlFor="youtube-link"
-                  className="flex items-center gap-2 text-red-700 font-medium text-sm sm:text-base"
-                >
-                  <Youtube className="h-4 w-4 text-red-600" />
-                  YouTube Video Link 🎥
-                </Label>
-                <Input
-                  id="youtube-link"
-                  type="url"
-                  placeholder="https://youtube.com/watch?v=... ✨"
-                  value={youtubeLink}
-                  onChange={(e) => setYoutubeLink(e.target.value)}
-                  className="border-2 border-red-200 focus:border-red-400 rounded-xl text-sm sm:text-base"
-                />
-              </div>
-            </div>
-
             {/* Keyword Input */}
             <div className="space-y-2">
               <Label htmlFor="keyword" className="text-indigo-700 font-medium text-sm sm:text-base">
-                Keyword Magic
+                Topic Magic
               </Label>
               <Input
                 id="keyword"
-                placeholder="Enter a keyword to generate amazing posts about..."
+                placeholder="Enter a topic to generate amazing posts!"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 className="border-2 border-indigo-200 focus:border-indigo-400 rounded-xl text-base sm:text-lg p-3 sm:p-4"
@@ -414,23 +550,32 @@ export default function LinkedInPostGenerator() {
                           </p>
                         ))}
                       </div>
-                      <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 gap-2">
                         <Button
                           onClick={() => handlePostToLinkedIn(post)}
                           className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 text-xs sm:text-sm"
                           size="sm"
                         >
-                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />📱 LinkedIn Post
+                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />📱 Post to LinkedIn
                         </Button>
-                        <Button
-                          onClick={() => handleEditPost(post)}
-                          variant="outline"
-                          size="sm"
-                          className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl font-medium text-xs sm:text-sm"
-                        >
-                          <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
-                          ✏️ Edit Post
-                        </Button>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Button
+                            onClick={() => handleSchedulePost(post)}
+                            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                            size="sm"
+                          >
+                            <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />📅 Schedule
+                          </Button>
+                          <Button
+                            onClick={() => handleEditPost(post)}
+                            variant="outline"
+                            size="sm"
+                            className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl font-medium text-xs sm:text-sm"
+                          >
+                            <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                            ✏️ Edit
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -487,6 +632,91 @@ export default function LinkedInPostGenerator() {
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-xl text-sm sm:text-base"
               >
                 💾 Save Changes
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        {/* Schedule Dialog */}
+        <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-orange-200 mx-2 sm:mx-auto">
+            <DialogHeader>
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-orange-800 flex items-center gap-2">
+                <Calendar className="h-5 w-5" />📅 Schedule Your LinkedIn Post
+              </DialogTitle>
+              <DialogDescription className="text-orange-600 text-sm sm:text-base">
+                Choose when you want this post to be published
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4 sm:space-y-6">
+              {schedulingPost && (
+                <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-orange-200">
+                  <img
+                    src={schedulingPost.image || "/placeholder.svg"}
+                    alt="Post image"
+                    className="w-full h-full object-cover"
+                  />
+                  <Badge
+                    className={`absolute top-2 sm:top-3 right-2 sm:right-3 ${getThemeColor(schedulingPost.theme)} font-medium shadow-lg text-xs sm:text-sm`}
+                  >
+                    {schedulingPost.theme}
+                  </Badge>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="schedule-date" className="text-orange-700 font-medium">
+                    📅 Date
+                  </Label>
+                  <Input
+                    id="schedule-date"
+                    type="date"
+                    value={scheduleDate}
+                    onChange={(e) => setScheduleDate(e.target.value)}
+                    min={getTodayDate()}
+                    className="border-2 border-orange-200 focus:border-orange-400 rounded-xl"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="schedule-time" className="text-orange-700 font-medium">
+                    🕐 Time
+                  </Label>
+                  <Input
+                    id="schedule-time"
+                    type="time"
+                    value={scheduleTime}
+                    onChange={(e) => setScheduleTime(e.target.value)}
+                    className="border-2 border-orange-200 focus:border-orange-400 rounded-xl"
+                  />
+                </div>
+              </div>
+
+              {scheduleDate && scheduleTime && (
+                <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+                  <div className="flex items-center gap-2 text-orange-700">
+                    <Clock className="h-4 w-4" />
+                    <span className="font-medium">
+                      Scheduled for: {formatScheduledDateTime(scheduleDate, scheduleTime)}
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+            <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+              <Button
+                variant="outline"
+                onClick={() => setIsScheduleDialogOpen(false)}
+                className="border-2 border-gray-300 rounded-xl text-sm sm:text-base"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={saveScheduledPost}
+                disabled={!scheduleDate || !scheduleTime}
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl text-sm sm:text-base"
+              >
+                📅 Schedule Post
               </Button>
             </DialogFooter>
           </DialogContent>
