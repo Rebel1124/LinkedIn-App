@@ -37,8 +37,8 @@ interface ScheduledPost {
 }
 
 const themes = [
-  { value: "ai-coding", label: "AI & Coding", color: "bg-blue-100 text-blue-800" },
-  { value: "financial", label: "Financial Markets", color: "bg-green-100 text-green-800" },
+  { value: "ai-coding", label: "AI & Coding", color: "bg-purple-100 text-purple-800" },
+  { value: "financial", label: "Financial Markets", color: "bg-orange-100 text-orange-800" },
 ]
 
 const topicSuggestions = {
@@ -133,15 +133,15 @@ const getLevelInfo = (level: number) => {
     return {
       title: "LinkedIn Legend",
       icon: Crown,
-      color: "text-yellow-500",
-      bgColor: "bg-yellow-50 border-yellow-200",
+      color: "text-orange-600",
+      bgColor: "bg-orange-50 border-orange-300",
     }
   if (level >= 7)
-    return { title: "Super Creator", icon: Star, color: "text-purple-500", bgColor: "bg-purple-50 border-purple-200" }
+    return { title: "Super Creator", icon: Star, color: "text-purple-600", bgColor: "bg-purple-50 border-purple-300" }
   if (level >= 4)
-    return { title: "Content Master", icon: Zap, color: "text-blue-500", bgColor: "bg-blue-50 border-blue-200" }
+    return { title: "Content Master", icon: Zap, color: "text-orange-600", bgColor: "bg-orange-50 border-orange-300" }
   if (level >= 2)
-    return { title: "Rising Star", icon: Star, color: "text-green-500", bgColor: "bg-green-50 border-green-200" }
+    return { title: "Rising Star", icon: Star, color: "text-purple-600", bgColor: "bg-purple-50 border-purple-300" }
   return { title: "Getting Started", icon: Zap, color: "text-gray-500", bgColor: "bg-gray-50 border-gray-200" }
 }
 
@@ -268,11 +268,11 @@ export default function LinkedInPostGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100 p-2 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-purple-50 to-orange-100 p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Combined User Profile and Header Section */}
-        <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-gradient-to-r from-purple-200 to-pink-200">
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 p-4 sm:p-8">
+        <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-purple-300">
+          <div className="bg-gradient-to-r from-purple-400 via-orange-300 to-purple-500 p-4 sm:p-8">
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
               {/* User Profile - Top on mobile, Left on desktop */}
               <div className="flex items-center gap-4 sm:gap-6">
@@ -318,7 +318,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Toggle */}
         {scheduledPosts.length > 0 && (
-          <Card className="mb-4 sm:mb-6 border-2 border-orange-200 shadow-lg">
+          <Card className="mb-4 sm:mb-6 border-2 border-orange-300 shadow-lg">
             <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -343,9 +343,9 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Section */}
         {showScheduledPosts && scheduledPosts.length > 0 && (
-          <Card className="mb-6 border-2 border-orange-200 shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-orange-50 to-yellow-50">
-              <CardTitle className="text-orange-800 text-lg sm:text-xl font-bold flex items-center gap-2">
+          <Card className="mb-6 border-2 border-orange-300 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-purple-50 to-orange-50">
+              <CardTitle className="text-purple-800 text-lg sm:text-xl font-bold flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
                 Your Scheduled Posts
               </CardTitle>
@@ -400,21 +400,21 @@ export default function LinkedInPostGenerator() {
         )}
 
         {/* Theme Selection Tabs */}
-        <Card className="mb-4 sm:mb-6 border-2 border-purple-200 shadow-lg">
+        <Card className="mb-4 sm:mb-6 border-2 border-purple-300 shadow-lg">
           <CardContent className="p-4 sm:p-6">
             <div className="space-y-3 sm:space-y-4">
               <Label className="text-purple-700 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 gap-2 sm:gap-0 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-2 gap-2 sm:gap-0 bg-gradient-to-r from-purple-25 to-orange-25 border-2 border-purple-300 rounded-xl p-2 h-auto">
                   <TabsTrigger
                     value="ai-coding"
-                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     🤖 AI & Coding
                   </TabsTrigger>
                   <TabsTrigger
                     value="financial"
-                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-lg font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-400 data-[state=active]:to-orange-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     💰 Financial Markets
                   </TabsTrigger>
@@ -437,11 +437,11 @@ export default function LinkedInPostGenerator() {
                         className={`rounded-full text-xs sm:text-sm px-3 py-1 transition-all duration-300 hover:scale-105 ${
                           keyword === topic
                             ? selectedTheme === "ai-coding"
-                              ? "bg-blue-100 border-blue-300 text-blue-700 hover:bg-blue-200"
-                              : "bg-green-100 border-green-300 text-green-700 hover:bg-green-200"
+                              ? "bg-purple-100 border-purple-400 text-purple-800 hover:bg-purple-200"
+                              : "bg-orange-100 border-orange-400 text-orange-800 hover:bg-orange-200"
                             : selectedTheme === "ai-coding"
-                              ? "border-blue-200 text-blue-600 hover:bg-blue-50"
-                              : "border-green-200 text-green-600 hover:bg-green-50"
+                              ? "border-purple-300 text-purple-700 hover:bg-purple-50"
+                              : "border-orange-300 text-orange-700 hover:bg-orange-50"
                         }`}
                       >
                         {topic}
@@ -455,8 +455,8 @@ export default function LinkedInPostGenerator() {
         </Card>
 
         {/* Input Section */}
-        <Card className="mb-6 sm:mb-8 border-2 border-purple-200 shadow-xl">
-          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
+        <Card className="mb-6 sm:mb-8 border-2 border-purple-300 shadow-xl">
+          <CardHeader className="bg-gradient-to-r from-purple-50 to-orange-50">
             <CardTitle className="text-purple-800 text-lg sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
             <CardDescription className="text-purple-600 text-sm sm:text-base">
               Enter a topic to generate stunning LinkedIn posts! 🎯
@@ -483,8 +483,8 @@ export default function LinkedInPostGenerator() {
               disabled={!keyword || !selectedTheme || isGenerating}
               className={`w-full ${
                 generatedPosts.length > 0
-                  ? "bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800"
-                  : "bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 hover:from-purple-600 hover:via-pink-600 hover:to-indigo-600"
+                  ? "bg-gradient-to-r from-purple-300 via-orange-300 to-purple-400 hover:from-purple-400 hover:via-orange-400 hover:to-purple-500"
+                  : "bg-gradient-to-r from-purple-300 via-orange-300 to-purple-400 hover:from-purple-400 hover:via-orange-400 hover:to-purple-500"
               } text-white font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
               size="lg"
             >
@@ -518,7 +518,7 @@ export default function LinkedInPostGenerator() {
               {generatedPosts.map((post, index) => (
                 <Card
                   key={post.id}
-                  className="overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-purple-200 hover:border-purple-400"
+                  className="overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-purple-300 hover:border-purple-400"
                 >
                   <div className="aspect-video relative">
                     <img
@@ -553,7 +553,7 @@ export default function LinkedInPostGenerator() {
                       <div className="grid grid-cols-1 gap-2">
                         <Button
                           onClick={() => handlePostToLinkedIn(post)}
-                          className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 text-xs sm:text-sm"
+                          className="bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
                           size="sm"
                         >
                           <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />📱 Post to LinkedIn
@@ -561,7 +561,7 @@ export default function LinkedInPostGenerator() {
                         <div className="grid grid-cols-2 gap-2">
                           <Button
                             onClick={() => handleSchedulePost(post)}
-                            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                            className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
                             size="sm"
                           >
                             <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />📅 Schedule
@@ -570,7 +570,7 @@ export default function LinkedInPostGenerator() {
                             onClick={() => handleEditPost(post)}
                             variant="outline"
                             size="sm"
-                            className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl font-medium text-xs sm:text-sm"
+                            className="border-purple-400 text-purple-700 hover:bg-purple-50 rounded-xl font-medium text-xs sm:text-sm"
                           >
                             <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                             ✏️ Edit
@@ -587,7 +587,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-purple-200 mx-2 sm:mx-auto">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-purple-300 mx-2 sm:mx-auto">
             <DialogHeader>
               <DialogTitle className="text-xl sm:text-2xl font-bold text-purple-800">
                 ✏️ Edit Your LinkedIn Post
@@ -598,7 +598,7 @@ export default function LinkedInPostGenerator() {
             </DialogHeader>
             <div className="space-y-3 sm:space-y-4">
               {editingPost && (
-                <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-purple-200">
+                <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-purple-300">
                   <img
                     src={editingPost.image || "/placeholder.svg"}
                     alt="Post image"
@@ -639,7 +639,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Schedule Dialog */}
         <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
-          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-orange-200 mx-2 sm:mx-auto">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-orange-300 mx-2 sm:mx-auto">
             <DialogHeader>
               <DialogTitle className="text-xl sm:text-2xl font-bold text-orange-800 flex items-center gap-2">
                 <Calendar className="h-5 w-5" />📅 Schedule Your LinkedIn Post
@@ -650,7 +650,7 @@ export default function LinkedInPostGenerator() {
             </DialogHeader>
             <div className="space-y-4 sm:space-y-6">
               {schedulingPost && (
-                <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-orange-200">
+                <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-orange-300">
                   <img
                     src={schedulingPost.image || "/placeholder.svg"}
                     alt="Post image"
@@ -714,7 +714,7 @@ export default function LinkedInPostGenerator() {
               <Button
                 onClick={saveScheduledPost}
                 disabled={!scheduleDate || !scheduleTime}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl text-sm sm:text-base"
+                className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 rounded-xl text-sm sm:text-base"
               >
                 📅 Schedule Post
               </Button>
