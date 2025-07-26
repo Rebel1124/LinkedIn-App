@@ -268,11 +268,11 @@ export default function LinkedInPostGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-purple-50 to-orange-100 p-2 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-purple-50 to-orange-50-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Combined User Profile and Header Section */}
         <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-purple-300">
-          <div className="bg-gradient-to-r from-purple-400 via-orange-300 to-purple-500 p-4 sm:p-8">
+          <div className="bg-gradient-to-r from-purple-400 via-orange-300 to-purple-400 p-4 sm:p-8">
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
               {/* User Profile - Top on mobile, Left on desktop */}
               <div className="flex items-center gap-4 sm:gap-6">
@@ -470,8 +470,8 @@ export default function LinkedInPostGenerator() {
               disabled={!keyword || !selectedTheme || isGenerating}
               className={`w-full ${
                 generatedPosts.length > 0
-                  ? "bg-gradient-to-r from-purple-300 via-orange-300 to-purple-400 hover:from-purple-400 hover:via-orange-400 hover:to-purple-500"
-                  : "bg-gradient-to-r from-purple-300 via-orange-300 to-purple-400 hover:from-purple-400 hover:via-orange-400 hover:to-purple-500"
+                  ? "bg-gradient-to-r from-purple-300 via-orange-200 to-purple-300 hover:from-purple-400 hover:via-orange-300 hover:to-purple-400"
+                  : "bg-gradient-to-r from-purple-300 via-orange-200 to-purple-300 hover:from-purple-400 hover:via-orange-300 hover:to-purple-400"
               } text-white font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
               size="lg"
             >
@@ -496,7 +496,7 @@ export default function LinkedInPostGenerator() {
         {generatedPosts.length > 0 && (
           <div className="space-y-4 sm:space-y-6">
             <div className="flex items-center justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 via-orange-300 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
                 Your Generated Posts
               </h2>
             </div>
