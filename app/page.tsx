@@ -125,7 +125,7 @@ const userProfile = {
   name: "Desi Reddy",
   level: 7,
   totalPosts: 42,
-  avatar: "/placeholder.svg?height=80&width=80&text=%F0%9F%8C%9F",
+  avatar: "/placeholder.svg?height=80&width=80&text=%F0%9F%8F%85", // Changed from %F0%9F%8C%9F to %F0%9F%8F%85
 }
 
 const getLevelInfo = (level: number) => {
@@ -276,20 +276,7 @@ export default function LinkedInPostGenerator() {
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
               {/* User Profile - Top on mobile, Left on desktop */}
               <div className="flex items-center gap-4 sm:gap-6">
-                <div className="relative">
-                  <img
-                    src={userProfile.avatar || "/placeholder.svg"}
-                    alt={userProfile.name}
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-lg"
-                  />
-                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1">
-                    {(() => {
-                      const levelInfo = getLevelInfo(userProfile.level)
-                      const IconComponent = levelInfo.icon
-                      return <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${levelInfo.color}`} />
-                    })()}
-                  </div>
-                </div>
+                <div className="text-7xl sm:text-8xl">🏅</div>
                 <div className="text-white">
                   <h2 className="text-xl sm:text-3xl font-bold">{userProfile.name}</h2>
                   <div className="flex items-center gap-2 mt-1 sm:mt-2">
