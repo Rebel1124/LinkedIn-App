@@ -462,16 +462,12 @@ export default function LinkedInPostGenerator() {
               <div className="flex items-center gap-4 sm:gap-6">
                 <div className="text-7xl sm:text-8xl">🏅</div>
                 <div className="text-white">
-                  <h2 className="text-xl sm:text-3xl font-bold">{userProfile.name}</h2>
-                  <div className="flex items-center gap-2 mt-1 sm:mt-2">
-                    <Badge
-                      className={`${getLevelInfo(userProfile.level).bgColor} ${getLevelInfo(userProfile.level).color} border text-xs sm:text-sm px-2 py-1 sm:px-3`}
-                    >
-                      Level {userProfile.level} • {getLevelInfo(userProfile.level).title}
-                    </Badge>
-                  </div>
-                  <p className="text-blue-100 text-sm sm:text-base mt-1 sm:mt-2">
-                    {userProfile.totalPosts} posts created • {scheduledPosts.length} scheduled
+                  <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
+                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2 opacity-90">
+                    Content Creator & LinkedIn Expert
+                  </p>
+                  <p className="text-white text-xs sm:text-sm mt-1 opacity-80">
+                    Helping professionals create amazing content ✨
                   </p>
                 </div>
               </div>
