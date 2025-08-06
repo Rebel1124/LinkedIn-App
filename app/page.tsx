@@ -463,9 +463,11 @@ export default function LinkedInPostGenerator() {
                 <div className="text-7xl sm:text-8xl">🏅</div>
                 <div className="text-white">
                   <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
-                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2">
-                    Quantitative Investment Professional
-                  </p>
+                  <div className="mt-1 sm:mt-2 inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg px-3 py-1">
+                    <p className="text-white text-sm sm:text-base font-medium">
+                      Quantitative Investment Professional
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -474,7 +476,7 @@ export default function LinkedInPostGenerator() {
                 <h1 className="text-3xl sm:text-6xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
                   LinkedIn Post Generator
                 </h1>
-                <p className="text-blue-100 text-base sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
+                <p className="text-white text-base sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
               </div>
             </div>
           </div>
