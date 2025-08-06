@@ -571,7 +571,7 @@ export default function LinkedInPostGenerator() {
         <Card className="mb-4 sm:mb-6 border-2 border-blue-300 shadow-lg">
           <CardContent className="p-4 sm:p-6">
             <div className="space-y-3 sm:space-y-4">
-              <Label className="text-blue-700 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
+              <Label className="text-blue-800 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
                 <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-2 h-auto">
                   {themes.map((theme) => (
