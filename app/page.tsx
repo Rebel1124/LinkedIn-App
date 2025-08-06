@@ -626,7 +626,7 @@ export default function LinkedInPostGenerator() {
           <Card className="mb-4 sm:mb-6 border-2 border-yellow-300 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50">
             <CardTitle className="text-yellow-800 text-lg sm:text-xl font-bold flex items-center gap-2">
-              📈 Top 3 Trending Headlines
+              Top 3 Trending Headlines
             </CardTitle>
             <CardDescription className="text-yellow-600">
               Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
