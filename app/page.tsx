@@ -752,32 +752,23 @@ export default function LinkedInPostGenerator() {
                           </p>
                         ))}
                       </div>
-                      <div className="grid grid-cols-1 gap-2">
+                      
+                      <div className="grid grid-cols-2 gap-2">
                         <Button
-                          onClick={() => handlePostToLinkedIn(post)}
+                          onClick={() => handleSchedulePost(post)}
                           className="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
                           size="sm"
                         >
-                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />📱 Post to LinkedIn
+                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />📅 Schedule
                         </Button>
-                        <div className="grid grid-cols-2 gap-2">
-                          <Button
-                            onClick={() => handleSchedulePost(post)}
-                            className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
-                            size="sm"
-                          >
-                            <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />📅 Schedule
-                          </Button>
-                          <Button
-                            onClick={() => handleEditPost(post)}
-                            variant="outline"
-                            size="sm"
-                            className="border-blue-400 text-blue-700 hover:bg-blue-50 rounded-xl font-medium text-xs sm:text-sm"
-                          >
-                            <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
-                            ✏️ Edit
-                          </Button>
-                        </div>
+                        <Button
+                          onClick={() => handleEditPost(post)}
+                          className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                          size="sm"
+                        >
+                          <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                          ✏️ Edit
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
