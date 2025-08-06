@@ -646,7 +646,8 @@ export default function LinkedInPostGenerator() {
                   </div>
                   <div className="flex-shrink-0">
                     <Badge className="flex-shrink-0 w-8 h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
-                    <span className="font-bold text-sm">#{index + 1}</span>
+                    <span className="font-bold text-sm">Trending 🔥</span>
+        
                     </Badge>
                   </div>
                 </div>
