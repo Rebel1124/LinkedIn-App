@@ -640,7 +640,7 @@ export default function LinkedInPostGenerator() {
                   className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]"
                   onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
                 >
-                  <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-yellow-200 rounded-full border border-yellow-400 flex items-center justify-center">
                     <span className="text-yellow-600 font-bold text-sm">#{index + 1}</span>
                   </div>
                   <div className="flex-1">
@@ -650,7 +650,7 @@ export default function LinkedInPostGenerator() {
                     <p className="text-xs text-yellow-600 mt-1">Click to use as topic</p>
                   </div>
                   <div className="flex-shrink-0">
-                    <Badge className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1">
+                    <Badge className="bg-yellow-200 border border-yellow-400 text-yellow-700 text-xs px-2 py-1">
                       Trending 🔥
                     </Badge>
                   </div>
