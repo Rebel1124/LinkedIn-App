@@ -665,7 +665,7 @@ export default function LinkedInPostGenerator() {
         <Card className="mb-6 sm:mb-8 border-2 border-blue-300 shadow-xl">
           <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50">
             <CardTitle className="text-blue-800 text-lg sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
-            <CardDescription className="text-yellow-700 text-sm sm:text-base">
+            <CardDescription className="text-yellow-500 text-sm sm:text-base">
               Enter a topic to generate stunning LinkedIn posts! 🎯
             </CardDescription>
           </CardHeader>
