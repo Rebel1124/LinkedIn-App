@@ -720,7 +720,7 @@ export default function LinkedInPostGenerator() {
               {generatedPosts.map((post, index) => (
                 <Card
                   key={post.id}
-                  className="overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-300 hover:border-blue-400"
+                  className="overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-yellow-400 hover:border-yellow-400"
                 >
                   <div className="aspect-video relative">
                     <img
