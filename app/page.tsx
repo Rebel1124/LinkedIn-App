@@ -685,8 +685,8 @@ export default function LinkedInPostGenerator() {
               disabled={!keyword || !selectedTheme || isGenerating}
               className={`w-full ${
                 generatedPosts.length > 0
-                  ? "bg-gradient-to-r from-yellow-300 via-blue-200 to-yellow-300 hover:from-yellow-400 hover:via-blue-300 hover:to-yellow-400"
-                  : "bg-gradient-to-r from-yellow-300 via-blue-200 to-yellow-300 hover:from-yellow-400 hover:via-blue-300 hover:to-yellow-400"
+                  ? "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400"
+                  : "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400"
               } text-white font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
               size="lg"
             >
