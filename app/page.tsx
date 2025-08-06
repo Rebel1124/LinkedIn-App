@@ -625,7 +625,7 @@ export default function LinkedInPostGenerator() {
         {selectedTheme && (
           <Card className="mb-4 sm:mb-6 border-2 border-yellow-300 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50">
-            <CardTitle className="text-yellow-800 text-lg sm:text-xl font-bold flex items-center gap-2">
+            <CardTitle className="text-blue-800 text-lg sm:text-xl font-bold flex items-center gap-2">
               Top 3 Trending Headlines
             </CardTitle>
             <CardDescription className="text-yellow-600 text-sm sm:text-base">
