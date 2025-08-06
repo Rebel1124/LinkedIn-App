@@ -687,7 +687,7 @@ export default function LinkedInPostGenerator() {
                 generatedPosts.length > 0
                   ? "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400"
                   : "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400"
-              } text-white font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
+              } text-gray-300 font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
               size="lg"
             >
               {isGenerating ? (
