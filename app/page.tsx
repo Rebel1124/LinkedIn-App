@@ -37,12 +37,12 @@ interface ScheduledPost {
 }
 
 const themes = [
-  { value: "economics", label: "Economics", color: "bg-emerald-100 text-emerald-800", emoji: "📊" },
-  { value: "markets", label: "Markets", color: "bg-orange-100 text-orange-800", emoji: "📈" },
+  { value: "economics", label: "Economics", color: "bg-blue-100 text-blue-800", emoji: "📊" },
+  { value: "markets", label: "Markets", color: "bg-green-100 text-green-800", emoji: "📈" },
   { value: "python", label: "Python", color: "bg-yellow-100 text-yellow-800", emoji: "🐍" },
   { value: "risk", label: "Risk", color: "bg-red-100 text-red-800", emoji: "⚠️" },
-  { value: "statistics", label: "Statistics", color: "bg-blue-100 text-blue-800", emoji: "📉" },
-  { value: "trading", label: "Trading", color: "bg-purple-100 text-purple-800", emoji: "💹" },
+  { value: "statistics", label: "Statistics", color: "bg-purple-100 text-purple-800", emoji: "📉" },
+  { value: "trading", label: "Trading", color: "bg-yellow-100 text-yellow-800", emoji: "💹" },
 ]
 
 const topicSuggestions = {
@@ -130,6 +130,51 @@ const topicSuggestions = {
     "Portfolio Management",
     "Trading Algorithms",
   ],
+}
+
+const trendingHeadlines = {
+  economics: [
+    "Federal Reserve Signals Potential Rate Cuts Amid Economic Uncertainty",
+    "Global Supply Chain Disruptions Continue to Impact Inflation Rates",
+    "Labor Market Shows Signs of Cooling as Job Openings Decline",
+    "Central Banks Worldwide Coordinate Response to Currency Volatility",
+    "Consumer Spending Patterns Shift as Economic Outlook Remains Mixed"
+  ],
+  markets: [
+    "Tech Stocks Rally as AI Investment Surge Continues",
+    "Bond Yields Fluctuate Amid Mixed Economic Signals",
+    "Emerging Markets See Capital Inflows Despite Global Uncertainty",
+    "Cryptocurrency Market Volatility Reaches New Heights",
+    "Energy Sector Leads Market Gains on Supply Concerns"
+  ],
+  python: [
+    "Python 3.12 Released with Enhanced Performance Features",
+    "Machine Learning Libraries See Major Updates for 2024",
+    "Financial Institutions Adopt Python for Risk Management Systems",
+    "Open Source Python Tools Revolutionize Data Analysis",
+    "Python Developers Report Highest Salary Growth in Tech"
+  ],
+  risk: [
+    "Cybersecurity Threats Pose Growing Risk to Financial Institutions",
+    "Climate Risk Assessment Becomes Mandatory for Major Banks",
+    "Operational Risk Management Gets AI-Powered Upgrade",
+    "Regulatory Changes Increase Compliance Risk for Fintech",
+    "Geopolitical Tensions Create New Risk Management Challenges"
+  ],
+  statistics: [
+    "Big Data Analytics Transform Statistical Modeling Approaches",
+    "Bayesian Methods Gain Popularity in Financial Forecasting",
+    "Statistical Software Market Sees Record Growth in 2024",
+    "Academic Research Highlights Bias in Traditional Statistical Models",
+    "Real-Time Statistical Analysis Becomes Standard in Trading"
+  ],
+  trading: [
+    "Algorithmic Trading Accounts for 80% of Market Volume",
+    "Retail Trading Platforms Report Record User Growth",
+    "High-Frequency Trading Faces New Regulatory Scrutiny",
+    "Options Trading Volume Hits All-Time High",
+    "Social Trading Platforms Gain Institutional Interest"
+  ]
 }
 
 const mockPosts = {
@@ -575,6 +620,46 @@ export default function LinkedInPostGenerator() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Trending Headlines Section */}
+        {selectedTheme && (
+          <Card className="mb-4 sm:mb-6 border-2 border-green-300 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-green-50 to-blue-50">
+              <CardTitle className="text-green-800 text-lg sm:text-xl font-bold flex items-center gap-2">
+                📈 Trending Headlines
+              </CardTitle>
+              <CardDescription className="text-green-600">
+                Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-4 sm:p-6">
+              <div className="space-y-3">
+                {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.map((headline, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-green-25 to-blue-25 border border-green-200 hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                    onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
+                  >
+                    <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-sm">#{index + 1}</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed hover:text-green-700 transition-colors">
+                        {headline}
+                      </p>
+                      <p className="text-xs text-green-600 mt-1">Click to use as topic</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <Badge className="bg-green-100 text-green-700 text-xs px-2 py-1">
+                        Trending 🔥
+                      </Badge>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Input Section */}
         <Card className="mb-6 sm:mb-8 border-2 border-blue-300 shadow-xl">
