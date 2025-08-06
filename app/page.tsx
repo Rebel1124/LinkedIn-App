@@ -731,7 +731,7 @@ export default function LinkedInPostGenerator() {
                     <Badge
                       className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-white text-blue-800 border border-blue-400 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-lg"
                     >
-                      <strong>{getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}</strong>
+                    {getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
                     </Badge>
                     <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-yellow-400">
                       <span className="text-xs font-bold text-yellow-700">Post #{index + 1}</span>
