@@ -578,7 +578,7 @@ export default function LinkedInPostGenerator() {
                     <TabsTrigger
                       key={theme.value}
                       value={theme.value}
-                      className="rounded-lg font-bold py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-yellow-300 hover:shadow-md flex flex-col sm:flex-row items-center gap-1"
+                      className="rounded-lg font-bold py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-yellow-200 hover:shadow-md flex flex-col sm:flex-row items-center gap-1"
                     >
                       <span className="text-base sm:text-lg">{theme.emoji}</span>
                       <span className="text-xs sm:text-sm">{theme.label}</span>
