@@ -463,11 +463,8 @@ export default function LinkedInPostGenerator() {
                 <div className="text-7xl sm:text-8xl">🏅</div>
                 <div className="text-white">
                   <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
-                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2 opacity-90">
-                    Content Creator & LinkedIn Expert
-                  </p>
-                  <p className="text-white text-xs sm:text-sm mt-1 opacity-80">
-                    Helping professionals create amazing content ✨
+                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2">
+                    Quantitative Investment Professional
                   </p>
                 </div>
               </div>
