@@ -743,7 +743,7 @@ export default function LinkedInPostGenerator() {
                         className="text-xs sm:text-sm text-gray-700 max-h-64 sm:max-h-96 overflow-y-auto pr-2"
                         style={{
                           scrollbarWidth: "thin",
-                          scrollbarColor: "#3b82f6 #dbeafe",
+                          scrollbarColor: "#eab308 #fef3c7", // Changed from blue to yellow
                         }}
                       >
                         {post.content.split("\n").map((line, lineIndex) => (
