@@ -603,7 +603,7 @@ export default function LinkedInPostGenerator() {
                         className={`rounded-full text-xs sm:text-sm px-3 py-1 transition-all duration-300 hover:scale-105 ${
                           keyword === topic
                             ? "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-200"
-                            : "border-blue400 text-blue-700 hover:bg-blue-200 hover:text-blue-700 hover:border-blue-400"
+                            : "border-blue-400 text-blue-600 hover:bg-blue-200 hover:text-blue-700 hover:border-blue-400"
                         }`}
                       >
                         {topic}
