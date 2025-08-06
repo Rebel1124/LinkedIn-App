@@ -578,12 +578,12 @@ export default function LinkedInPostGenerator() {
             <div className="space-y-3 sm:space-y-4">
               <Label className="text-blue-700 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 bg-gradient-to-r from-blue-25 to-yellow-25 border-2 border-blue-300 rounded-xl p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-2 h-auto">
                   {themes.map((theme) => (
                     <TabsTrigger
                       key={theme.value}
                       value={theme.value}
-                      className="rounded-lg font-bold py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-400 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col sm:flex-row items-center gap-1"
+                      className="rounded-lg font-bold py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col sm:flex-row items-center gap-1"
                     >
                       <span className="text-base sm:text-lg">{theme.emoji}</span>
                       <span className="text-xs sm:text-sm">{theme.label}</span>
