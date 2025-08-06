@@ -645,9 +645,8 @@ export default function LinkedInPostGenerator() {
                     <p className="text-xs text-yellow-600 mt-1">Click to use as topic</p>
                   </div>
                   <div className="flex-shrink-0">
-                    <Badge className="flex-shrink-0 w-8 h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
-                
-                  Trending 🔥
+                    <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-2 py-1">
+                      Trending 🔥
                     </Badge>
                   </div>
                 </div>
