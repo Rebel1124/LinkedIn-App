@@ -458,25 +458,23 @@ export default function LinkedInPostGenerator() {
         <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-blue-300">
           <div className="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 p-4 sm:p-8">
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
-              {/* User Profile - Top on mobile, Left on desktop */}
-              <div className="flex items-center gap-4 sm:gap-6">
-                <div className="text-7xl sm:text-8xl">🏅</div>
-                <div className="text-white">
-                  <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
-                  <div className="mt-1 sm:mt-2 inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg px-3 py-1">
-                    <p className="text-white text-sm sm:text-base font-medium">
-                      Quantitative Investment Professional
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Header Content - Bottom on mobile, Right on desktop */}
-              <div className="text-center sm:text-right">
+              {/* Header Content - Top on mobile, Left on desktop */}
+              <div className="text-center sm:text-left">
                 <h1 className="text-3xl sm:text-6xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
                   LinkedIn Post Generator
                 </h1>
                 <p className="text-white text-base sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
+              </div>
+
+              {/* User Profile - Bottom on mobile, Right on desktop */}
+              <div className="flex items-center gap-4 sm:gap-6">
+                <div className="text-7xl sm:text-8xl">🏅</div>
+                <div className="text-white text-center sm:text-right">
+                  <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
+                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2">
+                    Quantitative Investment Professional
+                  </p>
+                </div>
               </div>
             </div>
           </div>
