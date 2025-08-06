@@ -468,9 +468,11 @@ export default function LinkedInPostGenerator() {
 
               {/* User Profile - Bottom on mobile, Right on desktop */}
               <div className="flex items-center gap-4 sm:gap-6">
-                <div className="text-7xl sm:text-8xl">🏅</div>
                 <div className="text-white text-center sm:text-right">
-                  <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
+                  <div className="flex items-center gap-2 justify-center sm:justify-end">
+                    <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
+                    <div className="text-4xl sm:text-5xl">🏅</div>
+                  </div>
                   <p className="text-white text-sm sm:text-base mt-1 sm:mt-2">
                     Quantitative Investment Professional
                   </p>
