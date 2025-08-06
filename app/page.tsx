@@ -623,43 +623,93 @@ export default function LinkedInPostGenerator() {
 
         {/* Trending Headlines Section */}
         {selectedTheme && (
-          <Card className="mb-4 sm:mb-6 border-2 border-green-300 shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-green-50 to-blue-50">
-              <CardTitle className="text-green-800 text-lg sm:text-xl font-bold flex items-center gap-2">
-                📈 Trending Headlines
-              </CardTitle>
-              <CardDescription className="text-green-600">
-                Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-4 sm:p-6">
-              <div className="space-y-3">
-                {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.map((headline, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-green-25 to-blue-25 border border-green-200 hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]"
-                    onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
-                  >
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-green-600 font-bold text-sm">#{index + 1}</span>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed hover:text-green-700 transition-colors">
-                        {headline}
-                      </p>
-                      <p className="text-xs text-green-600 mt-1">Click to use as topic</p>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <Badge className="bg-green-100 text-green-700 text-xs px-2 py-1">
-                        Trending 🔥
-                      </Badge>
-                    </div>
+          <Card className={`mb-4 sm:mb-6 border-2 ${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'border-blue-300' : 
+            themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'border-green-300' :
+            themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'border-yellow-300' :
+            themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'border-red-300' :
+            themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'border-purple-300' :
+            'border-yellow-300'} shadow-lg`}>
+            <CardHeader className={`${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'bg-gradient-to-r from-blue-50 to-blue-100' : 
+              themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'bg-gradient-to-r from-green-50 to-green-100' :
+              themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'bg-gradient-to-r from-yellow-50 to-yellow-100' :
+              themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'bg-gradient-to-r from-red-50 to-red-100' :
+              themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'bg-gradient-to-r from-purple-50 to-purple-100' :
+              'bg-gradient-to-r from-yellow-50 to-yellow-100'}`}>
+            <CardTitle className={`${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'text-blue-800' : 
+              themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'text-green-800' :
+              themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'text-yellow-800' :
+              themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'text-red-800' :
+              themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'text-purple-800' :
+              'text-yellow-800'} text-lg sm:text-xl font-bold flex items-center gap-2`}>
+              📈 Top 3 Trending Headlines
+            </CardTitle>
+            <CardDescription className={`${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'text-blue-600' : 
+              themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'text-green-600' :
+              themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'text-yellow-600' :
+              themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'text-red-600' :
+              themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'text-purple-600' :
+              'text-yellow-600'}`}>
+              Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-4 sm:p-6">
+            <div className="space-y-3">
+              {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
+                <div
+                  key={index}
+                  className={`flex items-start gap-3 p-3 rounded-xl ${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'bg-gradient-to-r from-blue-25 to-blue-50 border border-blue-200' : 
+                    themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'bg-gradient-to-r from-green-25 to-green-50 border border-green-200' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'bg-gradient-to-r from-yellow-25 to-yellow-50 border border-yellow-200' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'bg-gradient-to-r from-red-25 to-red-50 border border-red-200' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'bg-gradient-to-r from-purple-25 to-purple-50 border border-purple-200' :
+                    'bg-gradient-to-r from-yellow-25 to-yellow-50 border border-yellow-200'} hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]`}
+                  onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
+                >
+                  <div className={`flex-shrink-0 w-8 h-8 ${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'bg-blue-100' : 
+                    themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'bg-green-100' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'bg-yellow-100' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'bg-red-100' :
+                    themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'bg-purple-100' :
+                    'bg-yellow-100'} rounded-full flex items-center justify-center`}>
+                    <span className={`${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'text-blue-600' : 
+                      themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'text-green-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'text-yellow-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'text-red-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'text-purple-600' :
+                      'text-yellow-600'} font-bold text-sm`}>#{index + 1}</span>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
+                  <div className="flex-1">
+                    <p className={`text-sm sm:text-base text-gray-800 font-medium leading-relaxed ${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'hover:text-blue-700' : 
+                      themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'hover:text-green-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'hover:text-yellow-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'hover:text-red-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'hover:text-purple-700' :
+                      'hover:text-yellow-700'} transition-colors`}>
+                      {headline}
+                    </p>
+                    <p className={`text-xs ${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'text-blue-600' : 
+                      themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'text-green-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'text-yellow-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'text-red-600' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'text-purple-600' :
+                      'text-yellow-600'} mt-1`}>Click to use as topic</p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Badge className={`${themes.find(t => t.value === selectedTheme)?.value === 'economics' ? 'bg-blue-100 text-blue-700' : 
+                      themes.find(t => t.value === selectedTheme)?.value === 'markets' ? 'bg-green-100 text-green-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'python' ? 'bg-yellow-100 text-yellow-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'risk' ? 'bg-red-100 text-red-700' :
+                      themes.find(t => t.value === selectedTheme)?.value === 'statistics' ? 'bg-purple-100 text-purple-700' :
+                      'bg-yellow-100 text-yellow-700'} text-xs px-2 py-1`}>
+                      Trending 🔥
+                    </Badge>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
         {/* Input Section */}
         <Card className="mb-6 sm:mb-8 border-2 border-blue-300 shadow-xl">
