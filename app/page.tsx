@@ -711,7 +711,7 @@ export default function LinkedInPostGenerator() {
         {generatedPosts.length > 0 && (
           <div className="space-y-4 sm:space-y-6">
             <div className="flex items-center justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-yellow-400 via-blue-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
                 Your Generated Posts
               </h2>
             </div>
