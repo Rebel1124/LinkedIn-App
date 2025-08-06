@@ -647,7 +647,7 @@ export default function LinkedInPostGenerator() {
                     <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
                       {headline}
                     </p>
-                    <p className="text-xs text-blue-700 mt-1">Click to use as topic</p>
+                    <p className="text-xs text-blue-600 mt-1">Click to use as topic</p>
                   </div>
                   <div className="flex-shrink-0">
                     <Badge className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1">
