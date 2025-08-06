@@ -637,7 +637,7 @@ export default function LinkedInPostGenerator() {
               {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-25 via-yellow-25 to-blue-25 border border-yellow-200 hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                  className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.02]"
                   onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
                 >
                   <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
