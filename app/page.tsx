@@ -42,7 +42,7 @@ const themes = [
   { value: "python", label: "Python", color: "bg-yellow-100 text-yellow-800", emoji: "🐍" },
   { value: "risk", label: "Risk", color: "bg-red-100 text-red-800", emoji: "⚠️" },
   { value: "statistics", label: "Statistics", color: "bg-purple-100 text-purple-800", emoji: "📉" },
-  { value: "trading", label: "Trading", color: "bg-orange-100 text-orange-800", emoji: "💹" },
+  { value: "trading", label: "Trading", color: "bg-yellow-100 text-yellow-800", emoji: "💹" },
 ]
 
 const topicSuggestions = {
