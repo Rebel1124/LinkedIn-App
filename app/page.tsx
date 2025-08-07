@@ -575,12 +575,12 @@ export default function LinkedInPostGenerator() {
             <div className="space-y-3 sm:space-y-4">
               <Label className="text-blue-800 font-bold text-sm sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 sm:gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-1 sm:p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-3 grid-rows-2 gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-3 h-auto">
                   {themes.map((theme) => (
                     <TabsTrigger
                       key={theme.value}
                       value={theme.value}
-                      className="rounded-lg font-bold py-3 sm:py-3 px-2 sm:px-4 text-xs data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-300 hover:shadow-md flex flex-col items-center gap-1 min-h-[60px] sm:min-h-[50px]"
+                      className="rounded-lg font-bold py-4 px-2 text-xs data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-300 hover:shadow-md flex flex-col items-center gap-1 min-h-[70px]"
                     >
                       <span className="text-lg sm:text-lg">{theme.emoji}</span>
                       <span className="text-xs leading-tight text-center">{theme.label}</span>
