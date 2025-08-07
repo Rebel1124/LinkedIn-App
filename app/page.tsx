@@ -329,7 +329,7 @@ export default function LinkedInPostGenerator() {
   const [selectedTheme, setSelectedTheme] = useState("")
   const [generatedPosts, setGeneratedPosts] = useState<GeneratedPost[]>([])
   const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([])
-  const [isGenerating, setIsGenerating(false)
+  const [isGenerating, setIsGenerating] = useState(false)
   const [editingPost, setEditingPost] = useState<GeneratedPost | null>(null)
   const [editedContent, setEditedContent] = useState("")
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
