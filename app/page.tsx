@@ -716,7 +716,7 @@ export default function LinkedInPostGenerator() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
+            <div className="flex flex-col gap-4">
               {generatedPosts.map((post, index) => (
                 <Card
                   key={post.id}
