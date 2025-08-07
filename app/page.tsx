@@ -453,7 +453,7 @@ export default function LinkedInPostGenerator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 p-2 sm:p-4">
-      <div className="max-w-6xl mx-auto space-y-3 sm:space-y-6">
+      <div className="max-w-sm mx-auto space-y-3 sm:space-y-6">
         {/* Combined User Profile and Header Section */}
         <Card className="overflow-hidden border-2 border-blue-300">
           <div className="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 p-3 sm:p-8">
@@ -634,8 +634,7 @@ export default function LinkedInPostGenerator() {
                 {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
-                    onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
+                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 transition-all duration-300"
                   >
                     <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
                       <span className="font-bold text-xs sm:text-sm">#{index + 1}</span>
@@ -644,7 +643,6 @@ export default function LinkedInPostGenerator() {
                       <p className="text-xs sm:text-base text-blue-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
                         {headline}
                       </p>
-                      <p className="text-xs text-yellow-600 mt-1">Click to use as topic</p>
                     </div>
                     <div className="flex-shrink-0">
                       <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-1 sm:px-2 py-1">
