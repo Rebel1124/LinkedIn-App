@@ -668,7 +668,7 @@ export default function LinkedInPostGenerator() {
             {/* Keyword Input */}
             <div className="space-y-2">
               <Label htmlFor="keyword" className="text-blue-700 font-medium text-xs sm:text-base">
-                Topic Magic
+                Keyword Magic
               </Label>
               <Input
                 id="keyword"
