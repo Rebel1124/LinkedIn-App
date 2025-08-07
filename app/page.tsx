@@ -484,7 +484,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Toggle */}
         {scheduledPosts.length > 0 && (
-          <Card className="border-2 border-yellow-300 shadow-lg">
+          <Card className="border-2 border-yellow-400 shadow-lg">
             <CardContent className="p-3 sm:p-6">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -509,7 +509,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Section */}
         {showScheduledPosts && scheduledPosts.length > 0 && (
-          <Card className="border-2 border-yellow-300 shadow-lg">
+          <Card className="border-2 border-yellow-400 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50 p-3 sm:p-6">
               <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
@@ -522,7 +522,7 @@ export default function LinkedInPostGenerator() {
                 {scheduledPosts.map((scheduledPost) => (
                   <div
                     key={scheduledPost.id}
-                    className="border-2 border-yellow-100 rounded-xl p-3 sm:p-4 bg-gradient-to-r from-yellow-25 to-blue-25 hover:shadow-md transition-all duration-300"
+                    className="border-2 border-yellow-400 rounded-xl p-3 sm:p-4 bg-gradient-to-r from-yellow-25 to-blue-25 hover:shadow-md transition-all duration-300"
                   >
                     <div className="flex flex-col gap-3 sm:gap-4">
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -620,7 +620,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Trending Headlines Section */}
         {selectedTheme && (
-          <Card className="border-2 border-yellow-300 shadow-lg">
+          <Card className="border-2 border-yellow-400 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50 p-3 sm:p-6">
               <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
                 Top 3 Trending Headlines
@@ -634,9 +634,9 @@ export default function LinkedInPostGenerator() {
                 {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 transition-all duration-300"
+                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-400 transition-all duration-300"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-300 flex items-center justify-center">
                       <span className="font-bold text-xs sm:text-sm">#{index + 1}</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -733,7 +733,7 @@ export default function LinkedInPostGenerator() {
                     >
                       {getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
                     </Badge>
-                    <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-blue-400">
+                    <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-blue-300">
                       <span className="text-xs font-bold text-blue-700">Post #{index + 1}</span>
                     </div>
                   </div>
@@ -832,7 +832,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Schedule Dialog */}
         <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
-          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto border-2 border-yellow-300 m-2">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto border-2 border-yellow-400 m-2">
             <DialogHeader className="p-4 sm:p-6">
               <DialogTitle className="text-lg sm:text-2xl font-bold text-yellow-800 flex items-center gap-2">
                 <Calendar className="h-5 w-5" />📅 Schedule Your LinkedIn Post
@@ -868,7 +868,7 @@ export default function LinkedInPostGenerator() {
                     value={scheduleDate}
                     onChange={(e) => setScheduleDate(e.target.value)}
                     min={getTodayDate()}
-                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl h-12"
+                    className="border-2 border-yellow-400 rounded-xl h-12"
                   />
                 </div>
                 <div className="space-y-2">
@@ -880,13 +880,13 @@ export default function LinkedInPostGenerator() {
                     type="time"
                     value={scheduleTime}
                     onChange={(e) => setScheduleTime(e.target.value)}
-                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl h-12"
+                    className="border-2 border-yellow-400 rounded-xl h-12"
                   />
                 </div>
               </div>
 
               {scheduleDate && scheduleTime && (
-                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-3 sm:p-4">
+                <div className="bg-yellow-50 border-2 border-yellow-400 rounded-xl p-3 sm:p-4">
                   <div className="flex items-center gap-2 text-yellow-700">
                     <Clock className="h-4 w-4" />
                     <span className="font-medium text-sm">
