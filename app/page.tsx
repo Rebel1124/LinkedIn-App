@@ -455,7 +455,7 @@ export default function LinkedInPostGenerator() {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 p-2 sm:p-4">
       <div className="max-w-sm mx-auto space-y-3 sm:space-y-6">
         {/* Combined User Profile and Header Section */}
-        <Card className="overflow-hidden border-2 border-blue-300">
+        <Card className="overflow-hidden border-2 border-yellow-400">
           <div className="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 p-3 sm:p-8">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
               {/* Header Content */}
