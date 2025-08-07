@@ -759,7 +759,7 @@ export default function LinkedInPostGenerator() {
                           className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs h-10"
                           size="sm"
                         >
-                          <Calendar className="h-3 w-3 mr-1" />📅 Schedule
+                          <Calendar className="h-3 w-3 mr-1" />📅 Post
                         </Button>
                         <Button
                           onClick={() => handleEditPost(post)}
