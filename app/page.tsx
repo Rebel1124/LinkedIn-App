@@ -452,28 +452,28 @@ export default function LinkedInPostGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 sm:p-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 p-2 sm:p-4">
+      <div className="max-w-6xl mx-auto space-y-3 sm:space-y-6">
         {/* Combined User Profile and Header Section */}
-        <Card className="mb-4 sm:mb-6 overflow-hidden border-2 border-blue-300">
-          <div className="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 p-4 sm:p-8">
-            <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-0">
-              {/* Header Content - Top on mobile, Left on desktop */}
-              <div className="text-center sm:text-left">
-                <h1 className="text-3xl sm:text-6xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
+        <Card className="overflow-hidden border-2 border-blue-300">
+          <div className="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 p-3 sm:p-8">
+            <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
+              {/* Header Content */}
+              <div>
+                <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-1 sm:mb-4 drop-shadow-lg">
                   LinkedIn Post Generator
                 </h1>
-                <p className="text-white text-base sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
+                <p className="text-white text-sm sm:text-xl">Create engaging LinkedIn posts with AI magic! 🚀</p>
               </div>
 
-              {/* User Profile - Bottom on mobile, Right on desktop */}
-              <div className="flex items-center gap-4 sm:gap-6">
-                <div className="text-white text-center sm:text-right">
-                  <div className="flex items-center gap-2 justify-center sm:justify-end">
-                    <h2 className="text-xl sm:text-3xl font-bold text-white">{userProfile.name}</h2>
-                    <div className="text-4xl sm:text-5xl">🏅</div>
+              {/* User Profile */}
+              <div className="flex items-center gap-2 sm:gap-4">
+                <div className="text-white text-center">
+                  <div className="flex items-center gap-2 justify-center">
+                    <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">{userProfile.name}</h2>
+                    <div className="text-2xl sm:text-4xl md:text-5xl">🏅</div>
                   </div>
-                  <p className="text-white text-sm sm:text-base mt-1 sm:mt-2">
+                  <p className="text-white text-xs sm:text-base mt-1">
                     Quantitative Investment Professional
                   </p>
                 </div>
@@ -484,12 +484,12 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Toggle */}
         {scheduledPosts.length > 0 && (
-          <Card className="mb-4 sm:mb-6 border-2 border-yellow-300 shadow-lg">
-            <CardContent className="p-4 sm:p-6">
-              <div className="flex items-center justify-between">
+          <Card className="border-2 border-yellow-300 shadow-lg">
+            <CardContent className="p-3 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <Calendar className="h-5 w-5 text-yellow-600" />
-                  <span className="font-bold text-yellow-700 text-base sm:text-lg">
+                  <span className="font-bold text-yellow-700 text-sm sm:text-lg">
                     📅 {scheduledPosts.length} Scheduled Post{scheduledPosts.length !== 1 ? "s" : ""}
                   </span>
                 </div>
@@ -497,7 +497,7 @@ export default function LinkedInPostGenerator() {
                   onClick={() => setShowScheduledPosts(!showScheduledPosts)}
                   variant="outline"
                   size="sm"
-                  className="border-yellow-300 text-yellow-600 hover:bg-yellow-50"
+                  className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 w-full sm:w-auto"
                 >
                   <Eye className="h-4 w-4 mr-2" />
                   {showScheduledPosts ? "Hide" : "View"} Scheduled
@@ -509,55 +509,57 @@ export default function LinkedInPostGenerator() {
 
         {/* Scheduled Posts Section */}
         {showScheduledPosts && scheduledPosts.length > 0 && (
-          <Card className="mb-6 border-2 border-yellow-300 shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50">
-              <CardTitle className="text-blue-800 text-lg sm:text-xl font-bold flex items-center gap-2">
+          <Card className="border-2 border-yellow-300 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50 p-3 sm:p-6">
+              <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
                 Your Scheduled Posts
               </CardTitle>
-              <CardDescription className="text-yellow-600">Manage your upcoming LinkedIn posts</CardDescription>
+              <CardDescription className="text-yellow-600 text-sm">Manage your upcoming LinkedIn posts</CardDescription>
             </CardHeader>
-            <CardContent className="p-4 sm:p-6">
-              <div className="space-y-4">
+            <CardContent className="p-3 sm:p-6">
+              <div className="space-y-3 sm:space-y-4">
                 {scheduledPosts.map((scheduledPost) => (
                   <div
                     key={scheduledPost.id}
-                    className="border-2 border-yellow-100 rounded-xl p-4 bg-gradient-to-r from-yellow-25 to-blue-25 hover:shadow-md transition-all duration-300"
+                    className="border-2 border-yellow-100 rounded-xl p-3 sm:p-4 bg-gradient-to-r from-yellow-25 to-blue-25 hover:shadow-md transition-all duration-300"
                   >
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="flex-shrink-0">
-                        <img
-                          src={scheduledPost.image || "/placeholder.svg"}
-                          alt="Scheduled post"
-                          className="w-full sm:w-24 h-24 object-cover rounded-lg"
-                        />
-                      </div>
-                      <div className="flex-1 space-y-2">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                          <Badge className={`${getThemeColor(scheduledPost.theme)} w-fit`}>
-                            {getThemeEmoji(scheduledPost.theme)} {scheduledPost.theme}
-                          </Badge>
-                          <div className="flex items-center gap-2 text-sm text-yellow-600">
-                            <Clock className="h-4 w-4" />
-                            <span className="font-medium">
-                              {formatScheduledDateTime(scheduledPost.scheduledDate, scheduledPost.scheduledTime)}
-                            </span>
+                    <div className="flex flex-col gap-3 sm:gap-4">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <div className="flex-shrink-0">
+                          <img
+                            src={scheduledPost.image || "/placeholder.svg"}
+                            alt="Scheduled post"
+                            className="w-full sm:w-20 h-20 object-cover rounded-lg"
+                          />
+                        </div>
+                        <div className="flex-1 space-y-2">
+                          <div className="flex flex-col gap-2">
+                            <Badge className={`${getThemeColor(scheduledPost.theme)} w-fit text-xs`}>
+                              {getThemeEmoji(scheduledPost.theme)} {scheduledPost.theme}
+                            </Badge>
+                            <div className="flex items-center gap-2 text-xs sm:text-sm text-yellow-600">
+                              <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
+                              <span className="font-medium">
+                                {formatScheduledDateTime(scheduledPost.scheduledDate, scheduledPost.scheduledTime)}
+                              </span>
+                            </div>
                           </div>
+                          <p className="text-xs sm:text-sm text-gray-700 line-clamp-2">
+                            {scheduledPost.content.substring(0, 100)}...
+                          </p>
                         </div>
-                        <p className="text-sm text-gray-700 line-clamp-3">
-                          {scheduledPost.content.substring(0, 150)}...
-                        </p>
-                        <div className="flex gap-2">
-                          <Button
-                            onClick={() => deleteScheduledPost(scheduledPost.id)}
-                            variant="outline"
-                            size="sm"
-                            className="border-red-300 text-red-600 hover:bg-red-50"
-                          >
-                            <Trash2 className="h-3 w-3 mr-1" />
-                            Delete
-                          </Button>
-                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          onClick={() => deleteScheduledPost(scheduledPost.id)}
+                          variant="outline"
+                          size="sm"
+                          className="border-red-300 text-red-600 hover:bg-red-50 text-xs flex-1 sm:flex-none"
+                        >
+                          <Trash2 className="h-3 w-3 mr-1" />
+                          Delete
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -568,20 +570,20 @@ export default function LinkedInPostGenerator() {
         )}
 
         {/* Theme Selection Tabs */}
-        <Card className="mb-4 sm:mb-6 border-2 border-blue-300 shadow-lg">
-          <CardContent className="p-4 sm:p-6">
+        <Card className="border-2 border-blue-300 shadow-lg">
+          <CardContent className="p-3 sm:p-6">
             <div className="space-y-3 sm:space-y-4">
-              <Label className="text-blue-800 font-bold text-base sm:text-lg">Select Your Theme 🎨</Label>
+              <Label className="text-blue-800 font-bold text-sm sm:text-lg">Select Your Theme 🎨</Label>
               <Tabs value={selectedTheme} onValueChange={setSelectedTheme} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-2 h-auto">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 sm:gap-2 bg-gradient-to-br from-yellow-50 via-blue-50 to-yellow-50 border-2 border-yellow-400 rounded-xl p-1 sm:p-2 h-auto">
                   {themes.map((theme) => (
                     <TabsTrigger
                       key={theme.value}
                       value={theme.value}
-                      className="rounded-lg font-bold py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-300 hover:shadow-md flex flex-col sm:flex-row items-center gap-1"
+                      className="rounded-lg font-bold py-3 sm:py-3 px-2 sm:px-4 text-xs data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-300 hover:shadow-md flex flex-col items-center gap-1 min-h-[60px] sm:min-h-[50px]"
                     >
-                      <span className="text-base sm:text-lg">{theme.emoji}</span>
-                      <span className="text-xs sm:text-sm">{theme.label}</span>
+                      <span className="text-lg sm:text-lg">{theme.emoji}</span>
+                      <span className="text-xs leading-tight text-center">{theme.label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
@@ -590,17 +592,17 @@ export default function LinkedInPostGenerator() {
               {/* Topic Suggestions */}
               {selectedTheme && (
                 <div className="space-y-3 animate-in fade-in-50 duration-500">
-                  <Label className="text-yellow-700 font-medium text-sm sm:text-base">
+                  <Label className="text-yellow-700 font-medium text-xs sm:text-base">
                     💡 Popular Topics (Click to select)
                   </Label>
-                  <div className="flex flex-wrap gap-2">
-                    {getCurrentSuggestions().map((topic, index) => (
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                    {getCurrentSuggestions().slice(0, 8).map((topic, index) => (
                       <Button
                         key={index}
                         variant="outline"
                         size="sm"
                         onClick={() => handleTopicSuggestionClick(topic)}
-                        className={`rounded-full text-xs sm:text-sm px-3 py-1 transition-all duration-300 hover:scale-105 ${
+                        className={`rounded-full text-xs px-2 sm:px-3 py-1 transition-all duration-300 hover:scale-105 ${
                           keyword === topic
                             ? "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-200"
                             : "border-blue-300 text-blue-600 hover:bg-blue-200 hover:text-blue-600 hover:border-blue-300"
@@ -618,56 +620,56 @@ export default function LinkedInPostGenerator() {
 
         {/* Trending Headlines Section */}
         {selectedTheme && (
-          <Card className="mb-4 sm:mb-6 border-2 border-yellow-300 shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50">
-            <CardTitle className="text-blue-800 text-lg sm:text-xl font-bold flex items-center gap-2">
-              Top 3 Trending Headlines
-            </CardTitle>
-            <CardDescription className="text-yellow-600 text-sm sm:text-base">
-              Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-4 sm:p-6">
-            <div className="space-y-3">
-              {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 transition-all duration-300 cursor-pointer hover:scale-[1.02]"
-                  onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
-                >
-                  <div className="flex-shrink-0 w-8 h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
-                    <span className="font-bold text-sm">#{index + 1}</span>
+          <Card className="border-2 border-yellow-300 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50 p-3 sm:p-6">
+              <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
+                Top 3 Trending Headlines
+              </CardTitle>
+              <CardDescription className="text-yellow-600 text-xs sm:text-base">
+                Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-3 sm:p-6">
+              <div className="space-y-2 sm:space-y-3">
+                {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-200 transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                    onClick={() => setKeyword(headline.split(' ').slice(0, 3).join(' '))}
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-400 flex items-center justify-center">
+                      <span className="font-bold text-xs sm:text-sm">#{index + 1}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-base text-blue-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
+                        {headline}
+                      </p>
+                      <p className="text-xs text-yellow-600 mt-1">Click to use as topic</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-1 sm:px-2 py-1">
+                        🔥
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm sm:text-base text-blue-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
-                      {headline}
-                    </p>
-                    <p className="text-xs text-yellow-600 mt-1">Click to use as topic</p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-2 py-1">
-                      Trending 🔥
-                    </Badge>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Input Section */}
-        <Card className="mb-6 sm:mb-8 border-2 border-blue-300 shadow-xl">
-          <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50">
-            <CardTitle className="text-blue-800 text-lg sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
-            <CardDescription className="text-yellow-600 text-sm sm:text-base">
+        <Card className="border-2 border-blue-300 shadow-xl">
+          <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50 p-3 sm:p-6">
+            <CardTitle className="text-blue-800 text-base sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
+            <CardDescription className="text-yellow-600 text-xs sm:text-base">
               Enter a topic to generate stunning LinkedIn posts! 🎯
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
+          <CardContent className="space-y-3 sm:space-y-6 p-3 sm:p-6">
             {/* Keyword Input */}
             <div className="space-y-2">
-              <Label htmlFor="keyword" className="text-blue-700 font-medium text-sm sm:text-base">
+              <Label htmlFor="keyword" className="text-blue-700 font-medium text-xs sm:text-base">
                 Topic Magic
               </Label>
               <Input
@@ -675,7 +677,7 @@ export default function LinkedInPostGenerator() {
                 placeholder="Enter a topic to generate amazing posts!"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
-                className="border-2 border-blue-200 focus:border-blue-400 rounded-xl text-base sm:text-lg p-3 sm:p-4"
+                className="border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm sm:text-lg p-3 sm:p-4 h-12 sm:h-auto"
               />
             </div>
 
@@ -687,7 +689,7 @@ export default function LinkedInPostGenerator() {
                 generatedPosts.length > 0
                   ? "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400 text-gray-500"
                   : "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400 text-gray-800"
-              } text-gray-500 font-bold py-3 sm:py-4 rounded-xl text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
+              } text-gray-500 font-bold py-4 sm:py-4 rounded-xl text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[48px]`}
               size="lg"
             >
               {isGenerating ? (
@@ -709,14 +711,14 @@ export default function LinkedInPostGenerator() {
 
         {/* Generated Posts Section */}
         {generatedPosts.length > 0 && (
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-3 sm:space-y-6">
             <div className="flex items-center justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-yellow-400 via-blue-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 via-blue-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg text-center">
                 Your Generated Posts
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
               {generatedPosts.map((post, index) => (
                 <Card
                   key={post.id}
@@ -729,21 +731,21 @@ export default function LinkedInPostGenerator() {
                       className="w-full h-full object-cover"
                     />
                     <Badge
-                      className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-white text-yellow-800 border border-yellow-400 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-lg"
+                      className="absolute top-2 right-2 bg-white text-yellow-800 border border-yellow-400 text-xs px-2 py-1 rounded-full shadow-lg"
                     >
-                    {getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
+                      {getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
                     </Badge>
-                    <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-blue-400">
+                    <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-blue-400">
                       <span className="text-xs font-bold text-blue-700">Post #{index + 1}</span>
                     </div>
                   </div>
                   <CardContent className="p-3 sm:p-5">
-                    <div className="space-y-3 sm:space-y-4">
+                    <div className="space-y-3">
                       <div
-                        className="text-xs sm:text-sm text-gray-700 max-h-64 sm:max-h-96 overflow-y-auto pr-2"
+                        className="text-xs sm:text-sm text-gray-700 max-h-40 sm:max-h-64 overflow-y-auto pr-2"
                         style={{
                           scrollbarWidth: "thin",
-                          scrollbarColor: "#eab308 #fef3c7", // Changed from blue to yellow
+                          scrollbarColor: "#eab308 #fef3c7",
                         }}
                       >
                         {post.content.split("\n").map((line, lineIndex) => (
@@ -753,20 +755,20 @@ export default function LinkedInPostGenerator() {
                         ))}
                       </div>
                       
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <Button
                           onClick={() => handleSchedulePost(post)}
-                          className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                          className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs h-10"
                           size="sm"
                         >
-                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />📅 Schedule
+                          <Calendar className="h-3 w-3 mr-1" />📅 Schedule
                         </Button>
                         <Button
                           onClick={() => handleEditPost(post)}
-                          className="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                          className="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs h-10"
                           size="sm"
                         >
-                          <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                          <Edit className="h-3 w-3 mr-1" />
                           ✏️ Edit
                         </Button>
                       </div>
@@ -780,16 +782,16 @@ export default function LinkedInPostGenerator() {
 
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-blue-300 mx-2 sm:mx-auto">
-            <DialogHeader>
-              <DialogTitle className="text-xl sm:text-2xl font-bold text-blue-800">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto border-2 border-blue-300 m-2">
+            <DialogHeader className="p-4 sm:p-6">
+              <DialogTitle className="text-lg sm:text-2xl font-bold text-blue-800">
                 ✏️ Edit Your LinkedIn Post
               </DialogTitle>
-              <DialogDescription className="text-blue-600 text-sm sm:text-base">
+              <DialogDescription className="text-blue-600 text-sm">
                 Make your post even more amazing!
               </DialogDescription>
             </DialogHeader>
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 pt-0">
               {editingPost && (
                 <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-blue-300">
                   <img
@@ -798,7 +800,7 @@ export default function LinkedInPostGenerator() {
                     className="w-full h-full object-cover"
                   />
                   <Badge
-                    className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs sm:text-sm"
+                    className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs"
                   >
                     {getThemeEmoji(editingPost.theme)} {editingPost.theme}
                   </Badge>
@@ -807,22 +809,22 @@ export default function LinkedInPostGenerator() {
               <Textarea
                 value={editedContent}
                 onChange={(e) => setEditedContent(e.target.value)}
-                rows={8}
+                rows={6}
                 placeholder="Edit your amazing post content..."
-                className="resize-none border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm sm:text-base"
+                className="resize-none border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm"
               />
             </div>
-            <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+            <DialogFooter className="flex flex-col sm:flex-row gap-2 p-4 sm:p-6 pt-0">
               <Button
                 variant="outline"
                 onClick={() => setIsEditDialogOpen(false)}
-                className="border-2 border-gray-300 rounded-xl text-sm sm:text-base"
+                className="border-2 border-gray-300 rounded-xl text-sm w-full sm:w-auto"
               >
                 Cancel
               </Button>
               <Button
                 onClick={saveEditedPost}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-xl text-sm sm:text-base"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-xl text-sm w-full sm:w-auto"
               >
                 💾 Save Changes
               </Button>
@@ -832,16 +834,16 @@ export default function LinkedInPostGenerator() {
 
         {/* Schedule Dialog */}
         <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
-          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto border-2 border-yellow-300 mx-2 sm:mx-auto">
-            <DialogHeader>
-              <DialogTitle className="text-xl sm:text-2xl font-bold text-yellow-800 flex items-center gap-2">
+          <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto border-2 border-yellow-300 m-2">
+            <DialogHeader className="p-4 sm:p-6">
+              <DialogTitle className="text-lg sm:text-2xl font-bold text-yellow-800 flex items-center gap-2">
                 <Calendar className="h-5 w-5" />📅 Schedule Your LinkedIn Post
               </DialogTitle>
-              <DialogDescription className="text-yellow-600 text-sm sm:text-base">
+              <DialogDescription className="text-yellow-600 text-sm">
                 Choose when you want this post to be published
               </DialogDescription>
             </DialogHeader>
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 p-4 sm:p-6 pt-0">
               {schedulingPost && (
                 <div className="aspect-video relative rounded-xl overflow-hidden border-2 border-yellow-300">
                   <img
@@ -850,7 +852,7 @@ export default function LinkedInPostGenerator() {
                     className="w-full h-full object-cover"
                   />
                   <Badge
-                    className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs sm:text-sm"
+                    className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs"
                   >
                     {getThemeEmoji(schedulingPost.theme)} {schedulingPost.theme}
                   </Badge>
@@ -859,7 +861,7 @@ export default function LinkedInPostGenerator() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="schedule-date" className="text-yellow-700 font-medium">
+                  <Label htmlFor="schedule-date" className="text-yellow-700 font-medium text-sm">
                     📅 Date
                   </Label>
                   <Input
@@ -868,11 +870,11 @@ export default function LinkedInPostGenerator() {
                     value={scheduleDate}
                     onChange={(e) => setScheduleDate(e.target.value)}
                     min={getTodayDate()}
-                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl"
+                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl h-12"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="schedule-time" className="text-yellow-700 font-medium">
+                  <Label htmlFor="schedule-time" className="text-yellow-700 font-medium text-sm">
                     🕐 Time
                   </Label>
                   <Input
@@ -880,34 +882,34 @@ export default function LinkedInPostGenerator() {
                     type="time"
                     value={scheduleTime}
                     onChange={(e) => setScheduleTime(e.target.value)}
-                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl"
+                    className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl h-12"
                   />
                 </div>
               </div>
 
               {scheduleDate && scheduleTime && (
-                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4">
+                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-3 sm:p-4">
                   <div className="flex items-center gap-2 text-yellow-700">
                     <Clock className="h-4 w-4" />
-                    <span className="font-medium">
+                    <span className="font-medium text-sm">
                       Scheduled for: {formatScheduledDateTime(scheduleDate, scheduleTime)}
                     </span>
                   </div>
                 </div>
               )}
             </div>
-            <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+            <DialogFooter className="flex flex-col sm:flex-row gap-2 p-4 sm:p-6 pt-0">
               <Button
                 variant="outline"
                 onClick={() => setIsScheduleDialogOpen(false)}
-                className="border-2 border-gray-300 rounded-xl text-sm sm:text-base"
+                className="border-2 border-gray-300 rounded-xl text-sm w-full sm:w-auto"
               >
                 Cancel
               </Button>
               <Button
                 onClick={saveScheduledPost}
                 disabled={!scheduleDate || !scheduleTime}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 rounded-xl text-sm sm:text-base"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 rounded-xl text-sm w-full sm:w-auto"
               >
                 📅 Schedule Post
               </Button>
