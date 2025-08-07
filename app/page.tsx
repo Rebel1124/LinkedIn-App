@@ -672,7 +672,7 @@ export default function LinkedInPostGenerator() {
               </Label>
               <Input
                 id="keyword"
-                placeholder="Enter a concept to generate amazing posts!"
+                placeholder="Enter a subject to generate amazing posts!"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 className="border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm sm:text-lg p-3 sm:p-4 h-12 sm:h-auto"
