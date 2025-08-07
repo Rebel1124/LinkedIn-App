@@ -756,17 +756,16 @@ export default function LinkedInPostGenerator() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <Button
                           onClick={() => handleSchedulePost(post)}
-                          className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs h-10"
+                          className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm h-12 px-4"
                           size="sm"
                         >
-                          <Calendar className="h-3 w-3 mr-1" />📅 Post
+                          📅 Post
                         </Button>
                         <Button
                           onClick={() => handleEditPost(post)}
-                          className="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs h-10"
+                          className="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm h-12 px-4"
                           size="sm"
                         >
-                          <Edit className="h-3 w-3 mr-1" />
                           ✏️ Edit
                         </Button>
                       </div>
