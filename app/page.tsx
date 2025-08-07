@@ -620,7 +620,7 @@ export default function LinkedInPostGenerator() {
 
         {/* Trending Headlines Section */}
         {selectedTheme && (
-          <Card className="border-2 border-yellow-400 shadow-lg">
+          <Card className="border-2 border-blue-300 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50 p-3 sm:p-6">
               <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
                 Top 3 Trending Headlines
