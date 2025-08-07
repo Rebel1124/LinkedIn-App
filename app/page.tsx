@@ -592,7 +592,7 @@ export default function LinkedInPostGenerator() {
               {/* Topic Suggestions */}
               {selectedTheme && (
                 <div className="space-y-3 animate-in fade-in-50 duration-500">
-                  <Label className="text-yellow-700 font-medium text-xs sm:text-base">
+                  <Label className="text-yellow-600 font-medium text-xs sm:text-base">
                     💡 Popular Topics (Click to select)
                   </Label>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
