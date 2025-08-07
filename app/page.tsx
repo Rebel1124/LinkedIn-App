@@ -329,7 +329,7 @@ export default function LinkedInPostGenerator() {
   const [selectedTheme, setSelectedTheme] = useState("")
   const [generatedPosts, setGeneratedPosts] = useState<GeneratedPost[]>([])
   const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([])
-  const [isGenerating, setIsGenerating] = useState(false)
+  const [isGenerating, setIsGenerating(false)
   const [editingPost, setEditingPost] = useState<GeneratedPost | null>(null)
   const [editedContent, setEditedContent] = useState("")
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
@@ -470,8 +470,8 @@ export default function LinkedInPostGenerator() {
               <div className="flex items-center gap-2 sm:gap-4">
                 <div className="text-white text-center">
                   <div className="flex items-center gap-2 justify-center">
-                    <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">{userProfile.name}</h2>
                     <div className="text-2xl sm:text-4xl md:text-5xl">🏅</div>
+                    <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">{userProfile.name}</h2>
                   </div>
                   <p className="text-white text-xs sm:text-base mt-1">
                     Quantitative Investment Professional
