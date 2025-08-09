@@ -601,8 +601,8 @@ export default function LinkedInPostGenerator() {
                       value={theme.value}
                       className="rounded-lg font-bold py-4 px-2 text-xs data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-yellow-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-300 hover:shadow-md flex flex-col items-center gap-1 min-h-[70px]"
                     >
-                      <span className="text-lg sm:text-lg">{theme.emoji}</span>
-                      <span className="text-xs leading-tight text-center">{theme.label}</span>
+                      <span className="text-xl sm:text-2xl">{theme.emoji}</span>
+                      <span className="text-sm leading-tight text-center">{theme.label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
