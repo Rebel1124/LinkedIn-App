@@ -356,6 +356,8 @@ export default function LinkedInPostGenerator() {
   const [scheduleDate, setScheduleDate] = useState("")
   const [scheduleTime, setScheduleTime] = useState("")
   const [showScheduledPosts, setShowScheduledPosts] = useState(false)
+  const [inputMode, setInputMode] = useState<"keyword" | "url">("keyword")
+  const [urlInput, setUrlInput] = useState("")
 
   const generatePosts = async () => {
     if (!keyword || !selectedTheme) return
@@ -682,28 +684,79 @@ export default function LinkedInPostGenerator() {
           <CardHeader className="bg-gradient-to-r from-blue-50 to-yellow-50 p-3 sm:p-6">
             <CardTitle className="text-blue-800 text-base sm:text-xl font-bold">Generate Your Amazing Posts</CardTitle>
             <CardDescription className="text-yellow-600 text-xs sm:text-base">
-              Enter a concept to generate LinkedIn posts! 🎯
+              Enter a concept or article URL to generate LinkedIn posts! 🎯
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3 sm:space-y-6 p-3 sm:p-6">
-            {/* Keyword Input */}
+            {/* Toggle Buttons */}
             <div className="space-y-2">
-              <Label htmlFor="keyword" className="text-blue-700 font-medium text-xs sm:text-base">
-                Keyword Magic
+              <Label className="text-blue-700 font-medium text-xs sm:text-base">Input Type</Label>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => setInputMode("keyword")}
+                  variant={inputMode === "keyword" ? "default" : "outline"}
+                  size="sm"
+                  className={`flex-1 rounded-xl text-xs sm:text-sm transition-all duration-300 ${
+                    inputMode === "keyword"
+                      ? "bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg"
+                      : "border-blue-300 text-blue-600 hover:bg-blue-50"
+                  }`}
+                >
+                  ✨ Keyword Magic
+                </Button>
+                <Button
+                  onClick={() => setInputMode("url")}
+                  variant={inputMode === "url" ? "default" : "outline"}
+                  size="sm"
+                  className={`flex-1 rounded-xl text-xs sm:text-sm transition-all duration-300 ${
+                    inputMode === "url"
+                      ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-lg"
+                      : "border-yellow-300 text-yellow-600 hover:bg-yellow-50"
+                  }`}
+                >
+                  🔗 Article URL
+                </Button>
+              </div>
+            </div>
+
+            {/* Input Field */}
+            <div className="space-y-2">
+              <Label
+                htmlFor={inputMode === "keyword" ? "keyword" : "url"}
+                className="text-blue-700 font-medium text-xs sm:text-base"
+              >
+                {inputMode === "keyword" ? "Keyword Magic" : "Article URL"}
               </Label>
-              <Input
-                id="keyword"
-                placeholder="Enter a subject to generate amazing posts!"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                className="border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm sm:text-lg p-3 sm:p-4 h-12 sm:h-auto"
-              />
+              {inputMode === "keyword" ? (
+                <Input
+                  id="keyword"
+                  placeholder="Enter a subject to generate amazing posts!"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  className="border-2 border-blue-200 focus:border-blue-400 rounded-xl text-sm sm:text-lg p-3 sm:p-4 h-12 sm:h-auto"
+                />
+              ) : (
+                <Input
+                  id="url"
+                  type="url"
+                  placeholder="https://example.com/article"
+                  value={urlInput}
+                  onChange={(e) => setUrlInput(e.target.value)}
+                  className="border-2 border-yellow-200 focus:border-yellow-400 rounded-xl text-sm sm:text-lg p-3 sm:p-4 h-12 sm:h-auto"
+                />
+              )}
             </div>
 
             {/* Generate Button */}
             <Button
               onClick={generatePosts}
-              disabled={!keyword || !selectedTheme || isGenerating}
+              disabled={
+                (!keyword && !urlInput) ||
+                !selectedTheme ||
+                isGenerating ||
+                (inputMode === "keyword" && !keyword) ||
+                (inputMode === "url" && !urlInput)
+              }
               className={`w-full ${
                 generatedPosts.length > 0
                   ? "bg-gradient-to-r from-blue-300 via-yellow-200 to-blue-300 hover:from-blue-400 hover:via-yellow-300 hover:to-blue-400 text-gray-500"
@@ -796,6 +849,7 @@ export default function LinkedInPostGenerator() {
           </div>
         )}
 
+        {/* Edit Dialog */}
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
           <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto border-2 border-blue-300 m-2">
