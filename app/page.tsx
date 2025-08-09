@@ -15,8 +15,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Edit, RefreshCw, ExternalLink, Calendar, Clock, Trash2, Eye } from 'lucide-react'
-import { Crown, Star, Zap } from 'lucide-react'
+import { RefreshCw, Calendar, Clock, Trash2, Eye } from "lucide-react"
+import { Crown, Star, Zap } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface GeneratedPost {
@@ -138,62 +138,65 @@ const trendingHeadlines = {
     "Global Supply Chain Disruptions Continue to Impact Inflation Rates",
     "Labor Market Shows Signs of Cooling as Job Openings Decline",
     "Central Banks Worldwide Coordinate Response to Currency Volatility",
-    "Consumer Spending Patterns Shift as Economic Outlook Remains Mixed"
+    "Consumer Spending Patterns Shift as Economic Outlook Remains Mixed",
   ],
   markets: [
     "Tech Stocks Rally as AI Investment Surge Continues",
     "Bond Yields Fluctuate Amid Mixed Economic Signals",
     "Emerging Markets See Capital Inflows Despite Global Uncertainty",
     "Cryptocurrency Market Volatility Reaches New Heights",
-    "Energy Sector Leads Market Gains on Supply Concerns"
+    "Energy Sector Leads Market Gains on Supply Concerns",
   ],
   python: [
     "Python 3.12 Released with Enhanced Performance Features",
     "Machine Learning Libraries See Major Updates for 2024",
     "Financial Institutions Adopt Python for Risk Management Systems",
     "Open Source Python Tools Revolutionize Data Analysis",
-    "Python Developers Report Highest Salary Growth in Tech"
+    "Python Developers Report Highest Salary Growth in Tech",
   ],
   risk: [
     "Cybersecurity Threats Pose Growing Risk to Financial Institutions",
     "Climate Risk Assessment Becomes Mandatory for Major Banks",
     "Operational Risk Management Gets AI-Powered Upgrade",
     "Regulatory Changes Increase Compliance Risk for Fintech",
-    "Geopolitical Tensions Create New Risk Management Challenges"
+    "Geopolitical Tensions Create New Risk Management Challenges",
   ],
   statistics: [
     "Big Data Analytics Transform Statistical Modeling Approaches",
     "Bayesian Methods Gain Popularity in Financial Forecasting",
     "Statistical Software Market Sees Record Growth in 2024",
     "Academic Research Highlights Bias in Traditional Statistical Models",
-    "Real-Time Statistical Analysis Becomes Standard in Trading"
+    "Real-Time Statistical Analysis Becomes Standard in Trading",
   ],
   trading: [
     "Algorithmic Trading Accounts for 80% of Market Volume",
     "Retail Trading Platforms Report Record User Growth",
     "High-Frequency Trading Faces New Regulatory Scrutiny",
     "Options Trading Volume Hits All-Time High",
-    "Social Trading Platforms Gain Institutional Interest"
-  ]
+    "Social Trading Platforms Gain Institutional Interest",
+  ],
 }
 
 const mockPosts = {
   economics: [
     {
       id: "econ1",
-      content: "📊 The latest economic indicators are painting an interesting picture of where we're headed.\n\nKey observations from this week's data:\n• Inflation showing signs of moderation\n• Employment numbers remain robust\n• Consumer spending patterns shifting\n\n💡 What this means for investors:\nDiversification across asset classes becomes even more critical as we navigate these economic crosscurrents.\n\nThe interplay between monetary policy and market dynamics will be fascinating to watch in the coming quarters.\n\nWhat economic indicators are you watching most closely? 📈\n\n#Economics #MonetaryPolicy #MarketAnalysis #Investing",
+      content:
+        "📊 The latest economic indicators are painting an interesting picture of where we're headed.\n\nKey observations from this week's data:\n• Inflation showing signs of moderation\n• Employment numbers remain robust\n• Consumer spending patterns shifting\n\n💡 What this means for investors:\nDiversification across asset classes becomes even more critical as we navigate these economic crosscurrents.\n\nThe interplay between monetary policy and market dynamics will be fascinating to watch in the coming quarters.\n\nWhat economic indicators are you watching most closely? 📈\n\n#Economics #MonetaryPolicy #MarketAnalysis #Investing",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Economics",
     },
     {
       id: "econ2",
-      content: "🌍 Global economic interdependence has never been more apparent than it is today.\n\nRecent developments highlight how:\n• Supply chain disruptions ripple across continents\n• Currency fluctuations impact international trade\n• Central bank policies create global spillover effects\n\n🎯 Key takeaway: Understanding macroeconomic trends isn't just academic—it's essential for making informed financial decisions.\n\nThe most successful investors and businesses are those who can read these economic tea leaves and position themselves accordingly.\n\nHow do you factor global economic trends into your decision-making? 🤔\n\n#GlobalEconomics #MacroTrends #InvestmentStrategy #EconomicPolicy",
+      content:
+        "🌍 Global economic interdependence has never been more apparent than it is today.\n\nRecent developments highlight how:\n• Supply chain disruptions ripple across continents\n• Currency fluctuations impact international trade\n• Central bank policies create global spillover effects\n\n🎯 Key takeaway: Understanding macroeconomic trends isn't just academic—it's essential for making informed financial decisions.\n\nThe most successful investors and businesses are those who can read these economic tea leaves and position themselves accordingly.\n\nHow do you factor global economic trends into your decision-making? 🤔\n\n#GlobalEconomics #MacroTrends #InvestmentStrategy #EconomicPolicy",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Economics",
     },
     {
       id: "econ3",
-      content: "⚡ Economic cycles are like seasons—predictable in their occurrence, unpredictable in their timing.\n\nCurrently observing:\n• Late-cycle indicators flashing mixed signals\n• Yield curve dynamics suggesting caution\n• Consumer confidence vs. actual spending divergence\n\n📈 Historical perspective: Every economic expansion eventually faces headwinds, but the duration and severity vary dramatically.\n\nSmart money prepares for multiple scenarios rather than betting on a single outcome.\n\nWhat's your strategy for navigating economic uncertainty? 💭\n\n#EconomicCycles #MarketTiming #RiskManagement #EconomicForecasting",
+      content:
+        "⚡ Economic cycles are like seasons—predictable in their occurrence, unpredictable in their timing.\n\nCurrently observing:\n• Late-cycle indicators flashing mixed signals\n• Yield curve dynamics suggesting caution\n• Consumer confidence vs. actual spending divergence\n\n📈 Historical perspective: Every economic expansion eventually faces headwinds, but the duration and severity vary dramatically.\n\nSmart money prepares for multiple scenarios rather than betting on a single outcome.\n\nWhat's your strategy for navigating economic uncertainty? 💭\n\n#EconomicCycles #MarketTiming #RiskManagement #EconomicForecasting",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Economics",
     },
@@ -201,19 +204,22 @@ const mockPosts = {
   markets: [
     {
       id: "market1",
-      content: "📈 Market volatility isn't noise—it's information.\n\nThis week's market action reveals:\n• Sector rotation accelerating\n• Growth vs. value dynamics shifting\n• International markets showing divergence\n\n🎯 Key insight: Volatility creates opportunities for those who understand what the market is really saying.\n\nWhile others see chaos, experienced investors see:\n• Mispriced assets\n• Sentiment extremes\n• Structural shifts in market dynamics\n\nThe question isn't whether markets will be volatile—it's how you'll respond when they are.\n\nHow do you turn market volatility into opportunity? 💡\n\n#Markets #Volatility #InvestmentOpportunity #MarketAnalysis",
+      content:
+        "📈 Market volatility isn't noise—it's information.\n\nThis week's market action reveals:\n• Sector rotation accelerating\n• Growth vs. value dynamics shifting\n• International markets showing divergence\n\n🎯 Key insight: Volatility creates opportunities for those who understand what the market is really saying.\n\nWhile others see chaos, experienced investors see:\n• Mispriced assets\n• Sentiment extremes\n• Structural shifts in market dynamics\n\nThe question isn't whether markets will be volatile—it's how you'll respond when they are.\n\nHow do you turn market volatility into opportunity? 💡\n\n#Markets #Volatility #InvestmentOpportunity #MarketAnalysis",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Markets",
     },
     {
       id: "market2",
-      content: "🚀 The bond market is sending signals that equity investors can't afford to ignore.\n\nCurrent observations:\n• Yield curve steepening/flattening patterns\n• Credit spreads widening in specific sectors\n• International bond flows shifting dramatically\n\n💡 Why this matters: Bond markets often lead equity markets in signaling economic transitions.\n\nSmart investors use fixed income markets as a crystal ball for:\n• Economic growth expectations\n• Inflation trajectory\n• Central bank policy shifts\n\nThe bond market doesn't lie—it just speaks a different language.\n\nWhat are the bond markets telling you right now? 📊\n\n#BondMarkets #YieldCurve #MarketSignals #FixedIncome",
+      content:
+        "🚀 The bond market is sending signals that equity investors can't afford to ignore.\n\nCurrent observations:\n• Yield curve steepening/flattening patterns\n• Credit spreads widening in specific sectors\n• International bond flows shifting dramatically\n\n💡 Why this matters: Bond markets often lead equity markets in signaling economic transitions.\n\nSmart investors use fixed income markets as a crystal ball for:\n• Economic growth expectations\n• Inflation trajectory\n• Central bank policy shifts\n\nThe bond market doesn't lie—it just speaks a different language.\n\nWhat are the bond markets telling you right now? 📊\n\n#BondMarkets #YieldCurve #MarketSignals #FixedIncome",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Markets",
     },
     {
       id: "market3",
-      content: "🌟 Market sentiment is a powerful force, but it's not always rational.\n\nRecent sentiment indicators show:\n• Fear/Greed index at extreme levels\n• Options positioning suggesting complacency\n• Retail vs. institutional sentiment diverging\n\n⚡ Contrarian insight: The best opportunities often emerge when sentiment reaches extremes.\n\nWhen everyone is bullish, who's left to buy?\nWhen everyone is bearish, who's left to sell?\n\nSuccessful investing requires thinking independently while respecting market psychology.\n\nHow do you balance sentiment analysis with fundamental research? 🤔\n\n#MarketSentiment #ContrarianInvesting #MarketPsychology #InvestmentStrategy",
+      content:
+        "🌟 Market sentiment is a powerful force, but it's not always rational.\n\nRecent sentiment indicators show:\n• Fear/Greed index at extreme levels\n• Options positioning suggesting complacency\n• Retail vs. institutional sentiment diverging\n\n⚡ Contrarian insight: The best opportunities often emerge when sentiment reaches extremes.\n\nWhen everyone is bullish, who's left to buy?\nWhen everyone is bearish, who's left to sell?\n\nSuccessful investing requires thinking independently while respecting market psychology.\n\nHow do you balance sentiment analysis with fundamental research? 🤔\n\n#MarketSentiment #ContrarianInvesting #MarketPsychology #InvestmentStrategy",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Markets",
     },
@@ -221,19 +227,22 @@ const mockPosts = {
   python: [
     {
       id: "python1",
-      content: "🐍 Python is revolutionizing how we analyze financial data.\n\nJust built a portfolio optimization script that:\n• Calculates efficient frontier in real-time\n• Incorporates transaction costs\n• Handles multiple asset classes\n• Runs Monte Carlo simulations\n\n💡 Key libraries making this possible:\n• Pandas for data manipulation\n• NumPy for numerical computing\n• SciPy for optimization\n• Matplotlib for visualization\n\nThe democratization of quantitative finance through Python is incredible. What used to require expensive software is now accessible to anyone willing to learn.\n\nWhat's your favorite Python library for financial analysis? 📊\n\n#Python #QuantitativeFinance #DataScience #FinTech #Programming",
+      content:
+        "🐍 Python is revolutionizing how we analyze financial data.\n\nJust built a portfolio optimization script that:\n• Calculates efficient frontier in real-time\n• Incorporates transaction costs\n• Handles multiple asset classes\n• Runs Monte Carlo simulations\n\n💡 Key libraries making this possible:\n• Pandas for data manipulation\n• NumPy for numerical computing\n• SciPy for optimization\n• Matplotlib for visualization\n\nThe democratization of quantitative finance through Python is incredible. What used to require expensive software is now accessible to anyone willing to learn.\n\nWhat's your favorite Python library for financial analysis? 📊\n\n#Python #QuantitativeFinance #DataScience #FinTech #Programming",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Python",
     },
     {
       id: "python2",
-      content: "⚡ Automated trading with Python: From concept to execution in 100 lines of code.\n\nToday's project breakdown:\n• Real-time data ingestion via APIs\n• Technical indicator calculations\n• Signal generation and backtesting\n• Risk management integration\n\n🎯 Python advantages for trading:\n• Rapid prototyping\n• Extensive library ecosystem\n• Easy integration with brokers\n• Powerful data analysis capabilities\n\nThe barrier to entry for algorithmic trading has never been lower. Python makes complex strategies accessible to individual traders.\n\nWhat trading strategies are you automating with Python? 🤖\n\n#AlgorithmicTrading #Python #TradingBots #FinTech #Automation",
+      content:
+        "⚡ Automated trading with Python: From concept to execution in 100 lines of code.\n\nToday's project breakdown:\n• Real-time data ingestion via APIs\n• Technical indicator calculations\n• Signal generation and backtesting\n• Risk management integration\n\n🎯 Python advantages for trading:\n• Rapid prototyping\n• Extensive library ecosystem\n• Easy integration with brokers\n• Powerful data analysis capabilities\n\nThe barrier to entry for algorithmic trading has never been lower. Python makes complex strategies accessible to individual traders.\n\nWhat trading strategies are you automating with Python? 🤖\n\n#AlgorithmicTrading #Python #TradingBots #FinTech #Automation",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Python",
     },
     {
       id: "python3",
-      content: "📈 Data visualization in Python: Making complex financial data tell a story.\n\nLatest dashboard features:\n• Interactive correlation heatmaps\n• Dynamic risk-return scatter plots\n• Time series decomposition charts\n• Portfolio performance attribution\n\n🔥 Visualization libraries I'm loving:\n• Plotly for interactivity\n• Seaborn for statistical plots\n• Bokeh for web applications\n• Matplotlib for publication-quality charts\n\nGood data visualization doesn't just show information—it reveals insights that drive better decisions.\n\nWhat's your go-to Python visualization technique? 📊\n\n#DataVisualization #Python #FinancialAnalysis #DataScience #Analytics",
+      content:
+        "📈 Data visualization in Python: Making complex financial data tell a story.\n\nLatest dashboard features:\n• Interactive correlation heatmaps\n• Dynamic risk-return scatter plots\n• Time series decomposition charts\n• Portfolio performance attribution\n\n🔥 Visualization libraries I'm loving:\n• Plotly for interactivity\n• Seaborn for statistical plots\n• Bokeh for web applications\n• Matplotlib for publication-quality charts\n\nGood data visualization doesn't just show information—it reveals insights that drive better decisions.\n\nWhat's your go-to Python visualization technique? 📊\n\n#DataVisualization #Python #FinancialAnalysis #DataScience #Analytics",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Python",
     },
@@ -241,19 +250,22 @@ const mockPosts = {
   risk: [
     {
       id: "risk1",
-      content: "⚠️ Risk management isn't about avoiding risk—it's about understanding and pricing it correctly.\n\nKey risk metrics I monitor daily:\n• Value at Risk (VaR) across portfolios\n• Maximum drawdown scenarios\n• Correlation breakdowns during stress\n• Tail risk exposures\n\n💡 Critical insight: The biggest risks are often the ones you're not measuring.\n\nBlack swan events remind us that:\n• Historical data has limitations\n• Correlations aren't stable\n• Liquidity can disappear instantly\n\nEffective risk management combines quantitative models with qualitative judgment.\n\nWhat's your approach to measuring unmeasurable risks? 🤔\n\n#RiskManagement #VaR #TailRisk #PortfolioRisk #RiskAnalytics",
+      content:
+        "⚠️ Risk management isn't about avoiding risk—it's about understanding and pricing it correctly.\n\nKey risk metrics I monitor daily:\n• Value at Risk (VaR) across portfolios\n• Maximum drawdown scenarios\n• Correlation breakdowns during stress\n• Tail risk exposures\n\n💡 Critical insight: The biggest risks are often the ones you're not measuring.\n\nBlack swan events remind us that:\n• Historical data has limitations\n• Correlations aren't stable\n• Liquidity can disappear instantly\n\nEffective risk management combines quantitative models with qualitative judgment.\n\nWhat's your approach to measuring unmeasurable risks? 🤔\n\n#RiskManagement #VaR #TailRisk #PortfolioRisk #RiskAnalytics",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Risk",
     },
     {
       id: "risk2",
-      content: "🎯 Stress testing portfolios: Preparing for what hasn't happened yet.\n\nRecent stress test scenarios:\n• 2008-style credit crisis\n• 1970s inflation shock\n• Technology bubble burst\n• Geopolitical risk events\n\n⚡ Key findings: Diversification works until it doesn't.\n\nDuring extreme stress:\n• Correlations approach 1.0\n• Liquidity premiums spike\n• Safe havens may not be safe\n• Behavioral factors dominate\n\nThe goal isn't to predict the future—it's to survive whatever future arrives.\n\nHow do you stress test your investment strategy? 📊\n\n#StressTesting #RiskManagement #PortfolioResilience #CrisisPreparedness",
+      content:
+        "🎯 Stress testing portfolios: Preparing for what hasn't happened yet.\n\nRecent stress test scenarios:\n• 2008-style credit crisis\n• 1970s inflation shock\n• Technology bubble burst\n• Geopolitical risk events\n\n⚡ Key findings: Diversification works until it doesn't.\n\nDuring extreme stress:\n• Correlations approach 1.0\n• Liquidity premiums spike\n• Safe havens may not be safe\n• Behavioral factors dominate\n\nThe goal isn't to predict the future—it's to survive whatever future arrives.\n\nHow do you stress test your investment strategy? 📊\n\n#StressTesting #RiskManagement #PortfolioResilience #CrisisPreparedness",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Risk",
     },
     {
       id: "risk3",
-      content: "🔍 Operational risk: The hidden threat that can destroy even the best investment strategies.\n\nCommon operational risks:\n• Technology failures\n• Human error in execution\n• Regulatory compliance gaps\n• Counterparty failures\n\n💡 Risk mitigation strategies:\n• Robust backup systems\n• Clear procedures and controls\n• Regular audits and reviews\n• Diversified counterparty exposure\n\nYou can have the perfect investment thesis, but operational failures can wipe out years of gains in minutes.\n\nWhat operational risks keep you up at night? ⚠️\n\n#OperationalRisk #RiskManagement #SystemsRisk #ComplianceRisk #RiskMitigation",
+      content:
+        "🔍 Operational risk: The hidden threat that can destroy even the best investment strategies.\n\nCommon operational risks:\n• Technology failures\n• Human error in execution\n• Regulatory compliance gaps\n• Counterparty failures\n\n💡 Risk mitigation strategies:\n• Robust backup systems\n• Clear procedures and controls\n• Regular audits and reviews\n• Diversified counterparty exposure\n\nYou can have the perfect investment thesis, but operational failures can wipe out years of gains in minutes.\n\nWhat operational risks keep you up at night? ⚠️\n\n#OperationalRisk #RiskManagement #SystemsRisk #ComplianceRisk #RiskMitigation",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Risk",
     },
@@ -261,19 +273,22 @@ const mockPosts = {
   statistics: [
     {
       id: "stats1",
-      content: "📉 Statistical significance vs. economic significance: A critical distinction every analyst should understand.\n\nRecent analysis revealed:\n• Statistically significant correlation (p < 0.05)\n• But economically meaningless relationship\n• Large sample size creating false confidence\n\n🎯 Key lesson: Statistical tools are powerful, but they need economic context.\n\nCommon statistical pitfalls in finance:\n• Confusing correlation with causation\n• Ignoring regime changes\n• Over-fitting historical data\n• Survivorship bias in datasets\n\nGood statistics inform decisions; great statistics prevent bad ones.\n\nWhat statistical concepts do you think are most misunderstood in finance? 📊\n\n#Statistics #DataAnalysis #StatisticalSignificance #QuantitativeAnalysis #DataScience",
+      content:
+        "📉 Statistical significance vs. economic significance: A critical distinction every analyst should understand.\n\nRecent analysis revealed:\n• Statistically significant correlation (p < 0.05)\n• But economically meaningless relationship\n• Large sample size creating false confidence\n\n🎯 Key lesson: Statistical tools are powerful, but they need economic context.\n\nCommon statistical pitfalls in finance:\n• Confusing correlation with causation\n• Ignoring regime changes\n• Over-fitting historical data\n• Survivorship bias in datasets\n\nGood statistics inform decisions; great statistics prevent bad ones.\n\nWhat statistical concepts do you think are most misunderstood in finance? 📊\n\n#Statistics #DataAnalysis #StatisticalSignificance #QuantitativeAnalysis #DataScience",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Statistics",
     },
     {
       id: "stats2",
-      content: "⚡ Bayesian thinking in investment analysis: Updating beliefs with new evidence.\n\nPractical applications:\n• Prior beliefs about market direction\n• New data updates probability estimates\n• Continuous refinement of investment thesis\n• Incorporating uncertainty into decisions\n\n💡 Bayesian advantages:\n• Explicit treatment of uncertainty\n• Natural framework for learning\n• Incorporates prior knowledge\n• Provides probability distributions, not point estimates\n\nInvestment success often comes from being less wrong, not perfectly right.\n\nHow do you update your investment views when new information arrives? 🤔\n\n#BayesianStatistics #ProbabilisticThinking #InvestmentAnalysis #DecisionMaking #Statistics",
+      content:
+        "⚡ Bayesian thinking in investment analysis: Updating beliefs with new evidence.\n\nPractical applications:\n• Prior beliefs about market direction\n• New data updates probability estimates\n• Continuous refinement of investment thesis\n• Incorporating uncertainty into decisions\n\n💡 Bayesian advantages:\n• Explicit treatment of uncertainty\n• Natural framework for learning\n• Incorporates prior knowledge\n• Provides probability distributions, not point estimates\n\nInvestment success often comes from being less wrong, not perfectly right.\n\nHow do you update your investment views when new information arrives? 🤔\n\n#BayesianStatistics #ProbabilisticThinking #InvestmentAnalysis #DecisionMaking #Statistics",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Statistics",
     },
     {
       id: "stats3",
-      content: "📈 Time series analysis: Extracting signal from noise in financial data.\n\nCurrent research focus:\n• Trend decomposition methods\n• Seasonality patterns in returns\n• Volatility clustering effects\n• Regime change detection\n\n🔍 Key insights from recent analysis:\n• Markets exhibit long memory in volatility\n• Return predictability varies by time horizon\n• Structural breaks are more common than assumed\n\nTime series analysis reveals that financial markets are neither purely random nor perfectly predictable—they're something more interesting.\n\nWhat time series patterns have you discovered in your analysis? 📊\n\n#TimeSeriesAnalysis #FinancialEconometrics #MarketMicrostructure #Statistics #DataAnalysis",
+      content:
+        "📈 Time series analysis: Extracting signal from noise in financial data.\n\nCurrent research focus:\n• Trend decomposition methods\n• Seasonality patterns in returns\n• Volatility clustering effects\n• Regime change detection\n\n🔍 Key insights from recent analysis:\n• Markets exhibit long memory in volatility\n• Return predictability varies by time horizon\n• Structural breaks are more common than assumed\n\nTime series analysis reveals that financial markets are neither purely random nor perfectly predictable—they're something more interesting.\n\nWhat time series patterns have you discovered in your analysis? 📊\n\n#TimeSeriesAnalysis #FinancialEconometrics #MarketMicrostructure #Statistics #DataAnalysis",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Statistics",
     },
@@ -281,19 +296,22 @@ const mockPosts = {
   trading: [
     {
       id: "trading1",
-      content: "💹 Trading psychology: The difference between knowing what to do and actually doing it.\n\nCommon psychological traps:\n• Loss aversion leading to poor exits\n• Confirmation bias in analysis\n• Overconfidence after winning streaks\n• Fear of missing out driving bad entries\n\n🎯 Mental frameworks that help:\n• Pre-defined risk management rules\n• Systematic position sizing\n• Regular performance reviews\n• Emotional state awareness\n\nThe market doesn't care about your emotions, but your emotions will determine your market results.\n\nWhat's your biggest psychological challenge in trading? 🧠\n\n#TradingPsychology #BehavioralFinance #TradingMindset #RiskManagement #Trading",
+      content:
+        "💹 Trading psychology: The difference between knowing what to do and actually doing it.\n\nCommon psychological traps:\n• Loss aversion leading to poor exits\n• Confirmation bias in analysis\n• Overconfidence after winning streaks\n• Fear of missing out driving bad entries\n\n🎯 Mental frameworks that help:\n• Pre-defined risk management rules\n• Systematic position sizing\n• Regular performance reviews\n• Emotional state awareness\n\nThe market doesn't care about your emotions, but your emotions will determine your market results.\n\nWhat's your biggest psychological challenge in trading? 🧠\n\n#TradingPsychology #BehavioralFinance #TradingMindset #RiskManagement #Trading",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Trading",
     },
     {
       id: "trading2",
-      content: "📊 Technical analysis: Reading the market's body language.\n\nKey patterns I'm watching:\n• Support and resistance levels\n• Volume confirmation signals\n• Momentum divergences\n• Chart pattern completions\n\n⚡ Technical analysis insights:\n• Price action reflects all available information\n• Patterns repeat because human behavior repeats\n• Volume validates price movements\n• Multiple timeframe analysis provides context\n\nTechnical analysis isn't fortune telling—it's probability assessment based on market behavior patterns.\n\nWhat's your favorite technical indicator and why? 📈\n\n#TechnicalAnalysis #ChartPatterns #TradingStrategy #MarketAnalysis #Trading",
+      content:
+        "📊 Technical analysis: Reading the market's body language.\n\nKey patterns I'm watching:\n• Support and resistance levels\n• Volume confirmation signals\n• Momentum divergences\n• Chart pattern completions\n\n⚡ Technical analysis insights:\n• Price action reflects all available information\n• Patterns repeat because human behavior repeats\n• Volume validates price movements\n• Multiple timeframe analysis provides context\n\nTechnical analysis isn't fortune telling—it's probability assessment based on market behavior patterns.\n\nWhat's your favorite technical indicator and why? 📈\n\n#TechnicalAnalysis #ChartPatterns #TradingStrategy #MarketAnalysis #Trading",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Trading",
     },
     {
       id: "trading3",
-      content: "🎯 Position sizing: The most important trading decision you'll make.\n\nPosition sizing principles:\n• Risk per trade should be consistent\n• Account for volatility differences\n• Consider correlation between positions\n• Adjust for market conditions\n\n💡 Kelly Criterion insights:\n• Optimal position size depends on edge and odds\n• Over-betting can lead to ruin\n• Under-betting limits growth potential\n• Practical implementation requires modifications\n\nYou can be right about market direction 60% of the time and still lose money with poor position sizing.\n\nHow do you determine your position sizes? 📊\n\n#PositionSizing #RiskManagement #KellyCriterion #TradingStrategy #MoneyManagement",
+      content:
+        "🎯 Position sizing: The most important trading decision you'll make.\n\nPosition sizing principles:\n• Risk per trade should be consistent\n• Account for volatility differences\n• Consider correlation between positions\n• Adjust for market conditions\n\n💡 Kelly Criterion insights:\n• Optimal position size depends on edge and odds\n• Over-betting can lead to ruin\n• Under-betting limits growth potential\n• Practical implementation requires modifications\n\nYou can be right about market direction 60% of the time and still lose money with poor position sizing.\n\nHow do you determine your position sizes? 📊\n\n#PositionSizing #RiskManagement #KellyCriterion #TradingStrategy #MoneyManagement",
       image: "/placeholder.svg?height=400&width=600",
       theme: "Trading",
     },
@@ -473,9 +491,7 @@ export default function LinkedInPostGenerator() {
                     <div className="text-2xl sm:text-4xl md:text-5xl">🏅</div>
                     <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">{userProfile.name}</h2>
                   </div>
-                  <p className="text-white text-xs sm:text-base mt-1">
-                    Quantitative Investment Professional
-                  </p>
+                  <p className="text-white text-xs sm:text-base mt-1">Quantitative Investment Professional</p>
                 </div>
               </div>
             </div>
@@ -596,21 +612,23 @@ export default function LinkedInPostGenerator() {
                     💡 Popular Topics (Click to select)
                   </Label>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
-                    {getCurrentSuggestions().slice(0, 8).map((topic, index) => (
-                      <Button
-                        key={index}
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleTopicSuggestionClick(topic)}
-                        className={`rounded-full text-xs px-2 sm:px-3 py-1 transition-all duration-300 hover:scale-105 ${
-                          keyword === topic
-                            ? "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-200"
-                            : "border-blue-300 text-blue-600 hover:bg-blue-200 hover:text-blue-600 hover:border-blue-300"
-                        }`}
-                      >
-                        {topic}
-                      </Button>
-                    ))}
+                    {getCurrentSuggestions()
+                      .slice(0, 8)
+                      .map((topic, index) => (
+                        <Button
+                          key={index}
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleTopicSuggestionClick(topic)}
+                          className={`rounded-full text-xs px-2 sm:px-3 py-1 transition-all duration-300 hover:scale-105 ${
+                            keyword === topic
+                              ? "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-200"
+                              : "border-blue-300 text-blue-600 hover:bg-blue-200 hover:text-blue-600 hover:border-blue-300"
+                          }`}
+                        >
+                          {topic}
+                        </Button>
+                      ))}
                   </div>
                 </div>
               )}
@@ -623,34 +641,37 @@ export default function LinkedInPostGenerator() {
           <Card className="border-2 border-blue-300 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 via-yellow-50 to-blue-50 p-3 sm:p-6">
               <CardTitle className="text-blue-800 text-base sm:text-xl font-bold flex items-center gap-2">
-                Top 3 Trending Headlines
+                Top 5 Trending Headlines
               </CardTitle>
               <CardDescription className="text-yellow-600 text-xs sm:text-base">
-                Latest trending topics in {themes.find(t => t.value === selectedTheme)?.label} {themes.find(t => t.value === selectedTheme)?.emoji}
+                Latest trending topics in {themes.find((t) => t.value === selectedTheme)?.label}{" "}
+                {themes.find((t) => t.value === selectedTheme)?.emoji}
               </CardDescription>
             </CardHeader>
             <CardContent className="p-3 sm:p-6">
               <div className="space-y-2 sm:space-y-3">
-                {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]?.slice(0, 3).map((headline, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-300 flex items-center justify-center">
-                      <span className="font-bold text-xs sm:text-sm">#{index + 1}</span>
+                {trendingHeadlines[selectedTheme as keyof typeof trendingHeadlines]
+                  ?.slice(0, 5)
+                  .map((headline, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl bg-gradient-to-r from-blue-100 via-yellow-100 to-blue-100 border border-yellow-400 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                    >
+                      <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border text-blue-700 border-blue-300 flex items-center justify-center">
+                        <span className="font-bold text-xs sm:text-sm">#{index + 1}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs sm:text-base text-blue-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
+                          {headline}
+                        </p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-1 sm:px-2 py-1">
+                          🔥
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs sm:text-base text-blue-800 font-medium leading-relaxed hover:text-yellow-700 transition-colors">
-                        {headline}
-                      </p>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <Badge className="bg-white border border-yellow-400 text-yellow-700 text-xs px-1 sm:px-2 py-1">
-                        🔥
-                      </Badge>
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </CardContent>
           </Card>
@@ -728,9 +749,7 @@ export default function LinkedInPostGenerator() {
                       alt="Post image"
                       className="w-full h-full object-cover"
                     />
-                    <Badge
-                      className="absolute top-2 right-2 bg-white text-yellow-800 border border-yellow-400 text-xs px-2 py-1 rounded-full shadow-lg"
-                    >
+                    <Badge className="absolute top-2 right-2 bg-white text-yellow-800 border border-yellow-400 text-xs px-2 py-1 rounded-full shadow-lg">
                       {getThemeEmoji(post.theme)} {post.theme} {index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"}
                     </Badge>
                     <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 border-2 border-blue-300">
@@ -752,7 +771,7 @@ export default function LinkedInPostGenerator() {
                           </p>
                         ))}
                       </div>
-                      
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <Button
                           onClick={() => handleSchedulePost(post)}
@@ -784,9 +803,7 @@ export default function LinkedInPostGenerator() {
               <DialogTitle className="text-lg sm:text-2xl font-bold text-blue-800">
                 ✏️ Edit Your LinkedIn Post
               </DialogTitle>
-              <DialogDescription className="text-blue-600 text-sm">
-                Make your post even more amazing!
-              </DialogDescription>
+              <DialogDescription className="text-blue-600 text-sm">Make your post even more amazing!</DialogDescription>
             </DialogHeader>
             <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 pt-0">
               {editingPost && (
@@ -796,9 +813,7 @@ export default function LinkedInPostGenerator() {
                     alt="Post image"
                     className="w-full h-full object-cover"
                   />
-                  <Badge
-                    className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs"
-                  >
+                  <Badge className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs">
                     {getThemeEmoji(editingPost.theme)} {editingPost.theme}
                   </Badge>
                 </div>
@@ -848,9 +863,7 @@ export default function LinkedInPostGenerator() {
                     alt="Post image"
                     className="w-full h-full object-cover"
                   />
-                  <Badge
-                    className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs"
-                  >
+                  <Badge className="absolute top-2 right-2 bg-blue-100 text-blue-800 font-medium shadow-lg text-xs">
                     {getThemeEmoji(schedulingPost.theme)} {schedulingPost.theme}
                   </Badge>
                 </div>
