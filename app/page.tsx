@@ -360,7 +360,8 @@ export default function LinkedInPostGenerator() {
   const [urlInput, setUrlInput] = useState("")
 
   const generatePosts = async () => {
-    if (!keyword || !selectedTheme) return
+    // Update validation to check both input modes
+    if ((!keyword && inputMode === "keyword") || (!urlInput && inputMode === "url") || !selectedTheme) return
 
     setIsGenerating(true)
 
@@ -751,7 +752,6 @@ export default function LinkedInPostGenerator() {
             <Button
               onClick={generatePosts}
               disabled={
-                (!keyword && !urlInput) ||
                 !selectedTheme ||
                 isGenerating ||
                 (inputMode === "keyword" && !keyword) ||
